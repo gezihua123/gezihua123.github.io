@@ -16,6 +16,10 @@ phonefast：精准破解 Harness Coding 在移动端验证环节的四大死穴
 [安装地址](https://github.com/gezihua123/phonefast/releases/tag/1.0.0)
 
 
+## 📺 视频对比：PhoneFast 与 PhoneMCP AI 执行效果
+
+点击观看完整对比视频：[【PhoneFast vs PhoneMCP】AI执行效果对比](https://www.bilibili.com/video/BV1RZTT6wEEf/)
+
 ---
 
 ## 一、架构差异
