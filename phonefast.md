@@ -12,8 +12,11 @@ phonefast：精准破解 Harness Coding 在移动端验证环节的四大死穴
 🧠 总结：phonefast 把手机变成了 AI Agent 的原生外设。 不再是脆弱的调试工具，而是高响应、高一致、低成本、高可用的感知‑执行一体化终端。
 
 
-## 安装地址
-[安装地址](https://github.com/gezihua123/phonefast/releases/tag/1.0.0)
+## 安装方式与产物地址
+```
+npx skills add gezihua123/phonefast-skill --skill phonefast-skill
+```
+[下载地址](https://github.com/gezihua123/phonefast/releases/tag/1.0.1)
 
 ---
 
