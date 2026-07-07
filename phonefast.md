@@ -1,28 +1,40 @@
-phonefast：精准破解 Harness Coding 在移动端验证环节的四大死穴
+**你有没有遇到过这样的情况：
+
+1. adb 一直无法选中元素或者选错元素，导致Vibe Coding 狂烧Token🔥🔥🔥🔥🔥。
+2. adb dump xml 失败，只能依赖截图验证效果，可偏偏模型又是单模态😖😖😖😖
+
+
+**phonefast**：精准破解 Harness Coding 在移动端验证环节的四大死穴
 慢、不准、烧 token🔥、不稳 —— 逐一击破。
 
-🐢 慢？→ 10 毫秒级响应，快 100 倍：daemon 常驻进程 + Unix Socket JSON‑RPC，单次触控延迟 < 10 毫秒；对比 adb shell 方案的 3~5 秒/次，提速 100 倍；全流程闭环（截图→分析→操作→验证）从 24 秒 压缩至 0.2 秒。
+**🐢 慢**？→ 10 毫秒级响应，快 100 倍：daemon 常驻进程 + Unix Socket JSON‑RPC，单次触控延迟 < 10 毫秒；对比 adb shell 方案的 3~5 秒/次，提速 100 倍；全流程闭环（截图→分析→操作→验证）从 24 秒 压缩至 0.2 秒。
 
-🎯 不准？→ 原子级一致性，杜绝竞态：截图走 H.264 关键帧管道，ffmpeg 直出无损 PNG；UI 解析采用自研 UISocketHandler，比 uiautomator dump 快 40%；observe 原子操作一次调用同时拿到画面 + 控件树，彻底消除“截图完界面已变”的时间窗口。
+**🎯 不准？** → 原子级一致性，杜绝竞态：截图走 H.264 关键帧管道，ffmpeg 直出无损 PNG；UI 解析采用自研 UISocketHandler，比 uiautomator dump 快 40%；observe 原子操作一次调用同时拿到画面 + 控件树，彻底消除“截图完界面已变”的时间窗口。
 
 🔥 烧 token？→ 原生多模态直出，开销砍半：phonefast MCP 模式原生返回 image/png 类型的 ImageContent，LLM 多模态引擎直接像素级识别，不再把几十 KB 的 base64 塞进 JSON 文本，大幅节省 token；CLI 模式下 observe 合并截图+UI 为一步，往返次数减半，token 预算全面解套。
 
-🛡️ 不稳？→ 工业级自愈能力，12 小时零故障：12 小时持续压测，14 万+次操作，100% 成功，零失败、零断连、零内存泄漏；daemon actor 模型内置 panic 自愈 + reconnect 节流，进程崩溃后自动拉起，10 秒内恢复；内存 RSS 稳定在 ~24 MB，1 小时后进入稳态，后续 11 小时零增长，无泄漏；三级保活机制（TCP keepalive + 10 秒心跳 + 写失败自动检测），断连能自愈，挂掉能重启。
+**🛡️ 不稳？** → 工业级自愈能力，12 小时零故障：12 小时持续压测，14 万+次操作，100% 成功，零失败、零断连、零内存泄漏；daemon actor 模型内置 panic 自愈 + reconnect 节流，进程崩溃后自动拉起，10 秒内恢复；内存 RSS 稳定在 ~24 MB，1 小时后进入稳态，后续 11 小时零增长，无泄漏；三级保活机制（TCP keepalive + 10 秒心跳 + 写失败自动检测），断连能自愈，挂掉能重启。
 
-🧠 总结：phonefast 把手机变成了 AI Agent 的原生外设。 不再是脆弱的调试工具，而是高响应、高一致、低成本、高可用的感知‑执行一体化终端。
+**🧠 总结**：phonefast 把手机变成了 AI Agent 的原生外设。 不再是脆弱的调试工具，而是高响应、高一致、低成本、高可用的感知‑执行一体化终端。
 
+
+
+---
+
+## 📺 视频对比：PhoneFast 与 PhoneMCP AI 执行效果
+
+![phonefast 4x 速度演示](phonefast_4x.gif)
+
+
+点击观看完整对比视频：[【PhoneFast vs PhoneMCP】AI执行效果对比](https://www.bilibili.com/video/BV1RZTT6wEEf/)
+
+---
 
 ## 安装方式与产物地址
 ```
 npx skills add gezihua123/phonefast-skill --skill phonefast-skill
 ```
 [下载地址](https://github.com/gezihua123/phonefast/releases/tag/1.0.1)
-
----
-
-## 📺 视频对比：PhoneFast 与 PhoneMCP AI 执行效果
-
-点击观看完整对比视频：[【PhoneFast vs PhoneMCP】AI执行效果对比](https://www.bilibili.com/video/BV1RZTT6wEEf/)
 
 ---
 

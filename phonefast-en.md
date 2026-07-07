@@ -12,6 +12,16 @@ Slow, inaccurate, token-burning🔥, unstable — eliminate them one by one.
 
 🧠 Summary: phonefast turns a phone into an AI Agent's native peripheral. No longer a fragile debugging tool, but a high-response, high-consistency, low-cost, high-availability perception-execution integrated terminal.
 
+
+---
+
+## 📺 Video Comparison: PhoneFast vs. PhoneMCP AI Execution Results
+
+![phonefast 4x speed demo](phonefast_4x.gif)
+
+
+Click to watch the full comparison video: [【PhoneFast vs PhoneMCP】AI Execution Comparison](https://www.bilibili.com/video/BV1RZTT6wEEf/)
+
 ---
 
 ## Installation
@@ -20,12 +30,6 @@ npx skills add gezihua123/phonefast-skill --skill phonefast-skill
 ```
 
 [Installation Address](https://github.com/gezihua123/phonefast/releases/tag/1.0.1)
-
----
-
-## 📺 Video Comparison: PhoneFast vs. PhoneMCP AI Execution Results
-
-Click to watch the full comparison video: [【PhoneFast vs PhoneMCP】AI Execution Comparison](https://www.bilibili.com/video/BV1RZTT6wEEf/)
 
 ---
 
