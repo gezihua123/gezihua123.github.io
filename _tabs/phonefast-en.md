@@ -1,6 +1,6 @@
 ---
 icon: fas fa-robot
-order: 5
+order: 2
 redirect_from: /phonefast-en
 ---
 
