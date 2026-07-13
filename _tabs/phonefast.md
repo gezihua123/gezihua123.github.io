@@ -129,7 +129,9 @@ flowchart LR
 ## 二、速度对比
 
 > **测试环境**: macOS arm64 | Go 1.24 | Node.js v22.20 | agent-device v0.17.6 | phonefast v1.0
+>
 > **设备**: TECNO KL8h (USB) | 分辨率 488×1080 | 测试日期: 2026-06-17
+>
 > **方法**: 每操作 3 次取平均，`perl -MTime::HiRes` 计时全链路
 
 | 操作 | phonefast daemon | agent-device | adb kill | vs agent | vs adb |
