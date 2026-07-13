@@ -6,7 +6,7 @@ order: 7
 
 ## 关于本站
 
-这是 phonefast 的官方文档站点。phonefast 是一个将 Android 手机变成 AI Agent 原生外设的工具。
+编程老司机的博客主页。专注 Android 基础框架与 Android AI，略懂后端，全干工程师。
 
 ### 联系方式
 
