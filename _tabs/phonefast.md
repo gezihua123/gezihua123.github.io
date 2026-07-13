@@ -1,6 +1,7 @@
 ---
 icon: fas fa-robot
 order: 1
+mermaid: true
 redirect_from: /phonefast2
 ---
 
