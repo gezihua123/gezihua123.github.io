@@ -1,7 +1,7 @@
 # Bundler cache
 .bundle
 vendor
-Gemfile.lock
+# Gemfile.lock is committed for reproducible builds
 
 # Jekyll cache
 .jekyll-cache
@@ -25,6 +25,9 @@ package-lock.json
 # Misc
 _sass/vendors
 assets/js/dist
+
+# Large assets (not tracked, excluded from Jekyll in _config.yml)
+app_*.png
 
 # Hidden system files
 *~

@@ -1,0 +1,38 @@
+# 侧边栏导航配置
+# 每个条目：title（显示名）、url（链接）、icon（Font Awesome 图标类名）
+# 带 children 的条目会自动渲染为可展开分组，父级页面链接显示为第一个子项
+
+- title: phonefast
+  url: /phonefast/
+  icon: fas fa-robot
+
+- title: phonefast-en
+  url: /phonefast-en/
+  icon: fas fa-robot
+
+- title: 分类
+  url: /categories/
+  icon: fas fa-stream
+
+- title: 标签
+  url: /tags/
+  icon: fas fa-tags
+
+- title: 归档
+  url: /archives/
+  icon: fas fa-archive
+
+- title: Celestial Oracle
+  url: /celestial-oracle/
+  icon: fas fa-star
+  children:
+    - title: 产品功能
+      url: /celestial-oracle/product-features/
+      icon: fas fa-clipboard-list
+    - title: 技术架构
+      url: /celestial-oracle/technical-architecture/
+      icon: fas fa-sitemap
+
+- title: 关于
+  url: /about/
+  icon: fas fa-info-circle

@@ -1,7 +1,6 @@
 ---
 icon: fas fa-robot
 order: 1
-redirect_from: /phonefast2
 ---
 
 **你有没有遇到过这样的情况：**
