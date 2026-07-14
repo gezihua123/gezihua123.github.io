@@ -18,7 +18,6 @@
 
   <nav class="flex-column flex-grow-1 w-100 ps-0">
     <ul class="nav">
-      <!-- TABS:{{ site.tabs | map: "title" | join: "," }}-->
       <!-- home -->
       <li class="nav-item{% if page.layout == 'home' %}{{ " active" }}{% endif %}">
         <a href="{{ '/' | relative_url }}" class="nav-link">
@@ -28,42 +27,35 @@
       </li>
       <!-- the real tabs -->
       {% for tab in site.tabs %}
-        {% comment %}Determine if this tab is a child of a group{% endcomment %}
-        {% assign has_group = tab.group %}
-        {% assign is_group_parent = tab.group_parent %}
-        {% assign is_child = false %}
-        {% if has_group and is_group_parent != true %}
-          {% assign is_child = true %}
-        {% endif %}
-
+        {% assign is_child = tab.group and tab.group_parent != true %}
         {% unless is_child %}
-          {% if is_group_parent %}
-            {% comment %}Check if any child matches the current page{% endcomment %}
-            {% assign active_child = false %}
-            {% for child in site.tabs %}
-              {% if child.group == tab.group and child.group_parent != true and child.url == page.url %}
-                {% assign active_child = true %}
+          {% if tab.group_parent %}
+            {% comment %}Check if any child is the current page{% endcomment %}
+            {% assign has_active_child = false %}
+            {% for subtab in site.tabs %}
+              {% if subtab.group == tab.group and subtab.group_parent != true and subtab.url == page.url %}
+                {% assign has_active_child = true %}
               {% endif %}
             {% endfor %}
-
+            {% comment %}active = current page highlighting; expanded = sub-nav visible{% endcomment %}
             {% assign parent_active = false %}
-            {% if tab.url == page.url or active_child %}
+            {% if tab.url == page.url or has_active_child %}
               {% assign parent_active = true %}
             {% endif %}
-
-            <li class="nav-item group-parent{% if parent_active %} active{% endif %}{% if active_child %} expanded{% endif %}">
+            <li class="nav-item group-parent{% if parent_active %}{{ " active" }}{% endif %}{% if has_active_child %}{{ " expanded" }}{% endif %}">
               <a href="{{ tab.url | relative_url }}" class="nav-link">
                 <i class="fa-fw {{ tab.icon }}"></i>
-                <span>{{ tab.title | upcase }}</span>
+                {% capture tab_name %}{{ tab.url | split: '/' }}{% endcapture %}
+                <span>{{ site.data.locales[include.lang].tabs.[tab_name] | default: tab.title | upcase }}</span>
                 <i class="fas fa-chevron-down group-toggle"></i>
               </a>
               <ul class="nav sub-nav">
-                {% for child in site.tabs %}
-                  {% if child.group == tab.group and child.group_parent != true %}
-                    <li class="nav-item{% if child.url == page.url %} active{% endif %}">
-                      <a href="{{ child.url | relative_url }}" class="nav-link">
-                        <i class="fa-fw {{ child.icon }}"></i>
-                        <span>{{ child.title | upcase }}</span>
+                {% for subtab in site.tabs %}
+                  {% if subtab.group == tab.group and subtab.group_parent != true %}
+                    <li class="nav-item{% if subtab.url == page.url %}{{ " active" }}{% endif %}">
+                      <a href="{{ subtab.url | relative_url }}" class="nav-link">
+                        <i class="fa-fw {{ subtab.icon }}"></i>
+                        <span>{{ subtab.title | upcase }}</span>
                       </a>
                     </li>
                   {% endif %}
@@ -72,14 +64,17 @@
             </li>
           {% else %}
             {% comment %}Normal tab (not part of any group){% endcomment %}
-            <li class="nav-item{% if tab.url == page.url %} active{% endif %}">
+            <li class="nav-item{% if tab.url == page.url %}{{ " active" }}{% endif %}">
               <a href="{{ tab.url | relative_url }}" class="nav-link">
                 <i class="fa-fw {{ tab.icon }}"></i>
-                <span>{{ tab.title | upcase }}</span>
+                {% capture tab_name %}{{ tab.url | split: '/' }}{% endcapture %}
+
+                <span>{{ site.data.locales[include.lang].tabs.[tab_name] | default: tab.title | upcase }}</span>
               </a>
             </li>
           {% endif %}
         {% endunless %}
+        <!-- .nav-item -->
       {% endfor %}
     </ul>
   </nav>
