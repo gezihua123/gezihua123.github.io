@@ -1,7 +1,10 @@
 ---
-# the default layout is 'page'
+layout: page
 icon: fas fa-info-circle
 order: 7
+title: 关于
+description: 编程老司机的博客主页，专注 Android 基础框架与 Android AI 开发，全干工程师。分享 Android 自动化、AI Agent、后端开发经验。
+tags: [Android开发, Android AI, 全干工程师, 博客, 编程]
 ---
 
 ## 关于本站

@@ -2,6 +2,8 @@
 icon: fas fa-star
 order: 6
 title: Celestial Oracle
+description: Celestial Oracle — 端侧 AI 命理 App。端侧运行 6 亿参数 AI 模型，将 1300 年历史的中国皇家命理系统（八字/紫微）翻译成诗意英文。隐私优先，无需注册，离线运行。
+tags: [AI命理, 八字, BaZi, 端侧AI, 隐私, iOS, Android, 东方命理]
 ---
 
 > **Celestial Oracle** — 你的手机上的 AI 命理师。端侧运行 6 亿参数模型，将 1300 年历史的中国皇家命理系统翻译成诗意英文。

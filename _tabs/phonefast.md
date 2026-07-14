@@ -1,6 +1,9 @@
 ---
 icon: fas fa-robot
 order: 1
+title: phonefast
+description: phonefast — Android 手机自动化工具，专为 AI Agent 移动端验证设计。10ms 级触控延迟、原子级 observe（截图+UI 树一次返回）、MCP 原生多模态，比 ADB shell 快 100 倍。开源安卓手机控制方案。
+tags: [Android自动化, AI Agent, 手机自动化, MCP协议, scrcpy, ADB替代, Go, 开源工具]
 ---
 
 **你有没有遇到过这样的情况：**
