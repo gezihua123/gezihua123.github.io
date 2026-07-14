@@ -32,7 +32,7 @@ redirect_from: /phonefast2
 npx skills add gezihua123/phonefast-skill --skill phonefast-skill
 ```
 
-[📥 下载地址](https://github.com/gezihua123/phonefast/releases/tag/1.0.1) | [GitHub 仓库](https://github.com/gezihua123/phonefast)
+[📥 下载地址](https://github.com/gezihua123/phonefast/releases/tag/v1.0.11) | [GitHub 仓库](https://github.com/gezihua123/phonefast)
 
 ---
 
@@ -73,7 +73,7 @@ flowchart LR
 - **连接**：scrcpy 协议，TCP 隧道直连设备上的 scrcpy-server
 - **daemon**：后台常驻进程，持有设备长连接，Unix Socket 接收命令
 - **冷启动**：<10ms（Go 原生二进制）
-- **命令延迟**：daemon 模式 <1ms socket 通信 + ~5ms TCP 往返 + Android 处理
+- **命令延迟**：daemon 模式 <1ms socket 通信 + ~12ms 截图解码 (astiav CGO 进程内) + Android 处理
 
 ### agent-device（TypeScript + ADB）
 
@@ -128,23 +128,23 @@ flowchart LR
 
 ## 二、速度对比
 
-> **测试环境**: macOS arm64 | Go 1.24 | Node.js v22.20 | agent-device v0.17.6 | phonefast v1.0
+> **测试环境**: macOS arm64 | Go 1.26 | Node.js v22.20 | agent-device v0.17.6 | **phonefast v1.0.11**
 >
-> **设备**: TECNO KL8h (USB) | 分辨率 488×1080 | 测试日期: 2026-06-17
+> **设备**: TECNO KL8h (USB) | 分辨率 488×1080 | 测试日期: 2026-07-14
 >
-> **方法**: 每操作 3 次取平均，`perl -MTime::HiRes` 计时全链路
+> **方法**: 每操作 3 次取平均，`perl -MTime::HiRes` 计时全链路；phonefast 数据来自 12 小时长稳压测（145,843 次操作）
 
 | 操作 | phonefast daemon | agent-device | adb kill | vs agent | vs adb |
 |------|:---:|:---:|:---:|:---:|:---:|
-| back 返回键 | **20ms** | 520ms | 8,505ms | **26x** | **425x** |
-| home 主页键 | **29ms** | 550ms | 8,864ms | **19x** | **306x** |
-| tap 坐标点击 | **30ms** | 748ms | 8,110ms | **25x** | **270x** |
-| swipe 滑动(300ms) | **359ms** | N/A¹ | 8,200ms | — | **23x** |
-| type_text 文本输入 | **13ms** | 32,700ms² | 7,890ms | **2515x** | **607x** |
-| screenshot 截图 | **167ms** | 2,593ms | 8,939ms | **16x** | **54x** |
-| UI 元素 | **191ms** | FAILED² | 7,600ms | — | **40x** |
-| observe 截图+UI | **148ms** | N/A | ~15,500ms³ | — | **105x** |
-| launch 应用启动 | **11ms** | 782ms⁴ | 8,240ms | **71x** | **749x** |
+| back 返回键 | **12ms** | 520ms | 8,505ms | **43x** | **709x** |
+| home 主页键 | **13ms** | 550ms | 8,864ms | **42x** | **682x** |
+| tap 坐标点击 | **13ms** | 748ms | 8,110ms | **58x** | **624x** |
+| swipe 滑动(300ms) | **318ms** | N/A¹ | 8,200ms | — | **26x** |
+| type_text 文本输入 | **1ms** | 32,700ms² | 7,890ms | **32,700x** | **7,890x** |
+| screenshot 截图 | **28ms** | 2,593ms | 8,939ms | **93x** | **319x** |
+| UI 元素 | **46ms** | FAILED² | 7,600ms | — | **165x** |
+| observe 截图+UI | **28ms** | N/A | ~15,500ms³ | — | **554x** |
+| launch 应用启动 | **1ms** | 782ms⁴ | 8,240ms | **782x** | **8,240x** |
 
 {:.annotation}
 
@@ -173,11 +173,12 @@ xychart-beta
 | 维度 | phonefast | agent-device | adb kill |
 |------|-----------|--------------|-----------|
 | **语言** | Go (原生二进制) | TypeScript (Node.js) | Python (PyInstaller) |
-| **二进制大小** | 12MB | ~3MB (npm) | 41MB |
+| **二进制大小** | 11MB | ~3MB (npm) | 41MB |
+| **运行内存** | <62MB RSS | ~30-50MB RSS | ~20-40MB (每次新建进程) |
 | **冷启动** | <10ms | ~500ms | ~7s |
 | **连接方式** | scrcpy 协议 (TCP 隧道) | ADB 命令 | ADB 命令 |
 | **daemon 模式** | ✅ 常驻进程 + Unix Socket | ✅ session-state on disk | ❌ 每次冷启动 |
-| **命令延迟** | 12-30ms | 450-750ms | 7-9s |
+| **命令延迟** | 1-13ms | 450-750ms | 7-9s |
 | **截图方式** | scrcpy H.264 关键帧 → ffmpeg PNG | adb screencap → pull PNG | adb screencap → pull PNG |
 | **UI 解析** | UISocketHandler (TCP socket) | uiautomator dump | uiautomator dump |
 | **UI 稳定性** | ⭐⭐⭐⭐⭐ | ⭐⭐ (uiautomator 常超时) | ⭐⭐⭐ |
@@ -228,23 +229,56 @@ flowchart TD
     C10 --> C11["启动 drainFrames() 后台协程"]
 ```
 
-### 5.2 截图管线
+### 5.2 截图管线（v1.0.11 架构）
+
+> v1.0.11 将截图管线从 **ffmpeg 子进程** 重构为 **astiav CGO 进程内解码**，消除子进程创建 + 管道 I/O 开销，截图延迟降低 3-4 倍。
+>
+> ffmpeg 子进程方式仍作为降级路径保留（`CGO_ENABLED=0` 时自动切换）。
 
 ```mermaid
 flowchart TD
     DEVICE["Android 设备视频流 H.264"] -->|TCP| SOCKET["scrcpy video socket"]
-    SOCKET -->|drainFrames| DECODER["h264.Decoder"]
+    SOCKET -->|drainFrames 后台协程| NAL["NAL 单元解析 SPS/PPS/IDR"]
+    NAL --> CACHE["LRU 缓存最新关键帧"]
+    NAL --> REQ["缺失时 requestKeyframe()\n发送 RESET_VIDEO 控制帧"]
 
-    DECODER --> NAL["NAL 单元解析 SPS/PPS/IDR"]
-    DECODER --> CACHE["缓存最新关键帧 LatestKeyframe()"]
-    DECODER --> REQ["缺失时 requestKeyframe() 发送 RESET_VIDEO"]
+    CACHE -->|"keyframeToPNG()"| CHOICE{"CGO_ENABLED?"}
 
-    CACHE -->|keyframeToPNG| FFMPEG["ffmpeg 子进程"]
-    FFMPEG --> FF_IN["stdin: -f h264 -i pipe:0"]
-    FF_IN --> FF_OUT["stdout: -vcodec png pipe:1"]
-    FF_OUT --> B64["base64 编码"]
-    B64 --> MC["MCP ImageContent<br/>{type:image, data, mimeType}"]
+    CHOICE -->|"默认: 是"| ASTIAV["astiav.Decoder\n(进程内 CGO)"]
+    ASTIAV --> CTX["CodecContext\nThreadCount=1\n持久复用"]
+    CTX --> DEC["SendPacket + ReceiveFrame"]
+    DEC --> SWSCALE["sws_scale\nH.264→RGBA"]
+    SWSCALE --> ENC["astiav 编码为 PNG bytes"]
+    ENC --> MC["MCP ImageContent\n{type:image, data, mimeType}"]
+
+    CHOICE -->|"降级: 否"| FFMPEG_CLI["ffmpeg CLI subprocess\nexec.CommandContext"]
+    FFMPEG_CLI --> STDIN["stdin: -f h264 -i pipe:0"]
+    STDIN --> STDOUT["stdout: -vcodec png pipe:1"]
+    STDOUT --> MC
 ```
+
+**两条路径对比**：
+
+| 维度 | 主路径 (astiav CGO) | 降级路径 (ffmpeg CLI) |
+|------|-------------------|---------------------|
+| 触发条件 | `CGO_ENABLED=1`（默认构建） | `CGO_ENABLED=0`（交叉编译等） |
+| 解码方式 | 进程内 C 函数调用 | `fork + exec` 子进程 |
+| 数据传输 | 零拷贝内存指针传递 | pipe stdin → stdout (memcpy ×2) |
+| 编解码器上下文 | **持久复用**（DPB 保持分配） | 每次新建进程（SPS/PPS 重解析） |
+| 线程数 | **ThreadCount=1** | 默认多线程 |
+| 截图 P50 | **28ms** 🚀 | ~100-200ms |
+| 冷启动截图 | **~19ms** | ~167ms |
+| 外部依赖 | 无（FFmpeg 静态链接进二进制） | 系统需安装 ffmpeg |
+
+**为什么单线程反而更快**：
+- 488×1080 单帧解码量极小，多线程切片同步开销 > 解码本身
+- 多线程导致 DPB (Decoded Picture Buffer) 翻倍分配，内存膨胀
+- ThreadCount=1 消除 slice-merge 和线程间同步，延迟更稳定
+
+**为什么持久上下文比新建快**：
+- 每次 `SendPacket(nil)` flush 后重新初始化 → +55ms（SPS/PPS 重解析 + DPB 重建）
+- 持久上下文复用上一帧的参考帧缓冲区，新 IDR 自然覆盖旧帧
+- 无 flush = 零额外开销
 
 **为什么用关键帧**：
 - I 帧（IDR/Keyframe）包含完整画面，可独立解码
@@ -331,31 +365,37 @@ sequenceDiagram
 
 ---
 
-## 六、长稳压测
+## 六、长稳压测 (v1.0.11 优化版)
 
-> 12 小时持续压测，144,348 次操作，99.99% 成功率。
+> 12 小时持续压测，145,843 次操作，**100% 成功率**，零断连。
 
 | 指标 | 数值 |
 |------|------|
 | **测试时长** | 720 分钟 (12 小时) |
-| **总操作数** | 144,348 |
-| **成功数** | 144,339 |
-| **失败数** | 9 |
-| **成功率** | **99.99%** |
-| **daemon 断连** | 1 次 (自动恢复，< 10s) |
+| **总操作数** | 145,843 |
+| **成功数** | 145,843 |
+| **失败数** | 0 |
+| **成功率** | **100%** |
+| **daemon 断连** | 0 次 |
 | **性能退化** | ❌ 无 |
+| **RSS 峰值** | <62MB |
 
 **12 项操作延迟总览**:
 
 | 操作 | 次数 | P50 | P95 | P99 | Avg | Max |
 |------|:---:|:---:|:---:|:---:|:---:|:---:|
-| `back` | 16,510 | 1ms | 2ms | 2ms | 1ms | 385ms |
-| `tap` | 49,530 | 13ms | 14ms | 14ms | 13ms | 2.9s |
-| `home` | 16,510 | 13ms | 14ms | 14ms | 13ms | 2.8s |
-| `screenshot` | 4,113 | 112ms | 192ms | 207ms | 127ms | 278ms |
-| `get_ui_elements` | 4,110 | 109ms | 236ms | 260ms | 132ms | 10.3s |
-| `observe` | 4,111 | 145ms | 225ms | 241ms | 162ms | 12.6s |
-| `swipe` | 8,226 | 324ms | 328ms | 329ms | 326ms | 12.3s |
+| `tap` | 49,943 | **13ms** | 13ms | 14ms | 12ms | 453ms |
+| `back` | 16,639 | **13ms** | 13ms | 14ms | 12ms | 474ms |
+| `home` | 16,642 | **13ms** | 13ms | 14ms | 12ms | 18ms |
+| `press_key` | 16,650 | **13ms** | 13ms | 14ms | 12ms | 18ms |
+| `swipe` | 8,384 | **318ms** | 322ms | 323ms | 318ms | 821ms |
+| `screenshot` | 4,185 | **28ms** | 126ms | 128ms | 49ms | 132ms |
+| `observe` | 4,188 | **28ms** | 126ms | 129ms | 51ms | 134ms |
+| `get_ui_elements` | 4,189 | **46ms** | 132ms | 151ms | 61ms | 192ms |
+| `type_text` | 4,188 | **1ms** | 1ms | 2ms | 1ms | 6ms |
+| `launch_app` | 4,187 | **1ms** | 1ms | 2ms | 1ms | 5ms |
+| `status` | 4,189 | **1ms** | 1ms | 2ms | 1ms | 3ms |
+| `wait` | 12,459 | **33ms** | 33ms | 33ms | 32ms | 38ms |
 
 ---
 
@@ -370,9 +410,9 @@ sequenceDiagram
 
 ```bash
 phonefast daemon                              # 启动 (仅需一次)
-phonefast --daemon tap 540 960                # 点击 (30ms)
-phonefast --daemon screenshot /tmp/s.png      # 截图 (167ms)
-phonefast --daemon observe                    # 截图+UI (148ms)
+phonefast --daemon tap 540 960                # 点击 (13ms)
+phonefast --daemon screenshot /tmp/s.png      # 截图 (28ms)
+phonefast --daemon observe                    # 截图+UI (28ms)
 ```
 
 ### 推荐组合
