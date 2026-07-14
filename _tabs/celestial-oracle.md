@@ -2,6 +2,8 @@
 icon: fas fa-star
 order: 6
 title: Celestial Oracle
+group: celestial-oracle
+group_parent: true
 ---
 
 > **Celestial Oracle** — 你的手机上的 AI 命理师。端侧运行 6 亿参数模型，将 1300 年历史的中国皇家命理系统翻译成诗意英文。

@@ -1,6 +1,8 @@
 ---
-layout: page
-title: Celestial Oracle 技术架构
+icon: fas fa-sitemap
+order: 3
+title: 技术架构
+group: celestial-oracle
 permalink: /celestial-oracle/technical-architecture/
 mermaid: true
 ---
