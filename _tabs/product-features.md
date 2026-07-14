@@ -1,6 +1,8 @@
 ---
 layout: page
-title: Celestial Oracle 产品功能
+icon: fas fa-clipboard-list
+order: 8
+title: 产品功能
 permalink: /celestial-oracle/product-features/
 mermaid: true
 ---
