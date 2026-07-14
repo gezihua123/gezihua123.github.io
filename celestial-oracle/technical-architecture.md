@@ -1,10 +1,11 @@
 ---
-icon: fas fa-sitemap
-order: 7
+layout: page
 title: Celestial Oracle 技术架构
+permalink: /celestial-oracle/technical-architecture/
+mermaid: true
 ---
 
-> 📖 本文是 Celestial Oracle AI App 的技术架构文档。配套文档：[产品功能](/product-features/)。
+> 🔙 [返回 Celestial Oracle 总览](/celestial-oracle/)
 {: .prompt-info }
 
 # Celestial Oracle — 技术架构文档

@@ -1,10 +1,11 @@
 ---
-icon: fas fa-clipboard-list
-order: 6
+layout: page
 title: Celestial Oracle 产品功能
+permalink: /celestial-oracle/product-features/
+mermaid: true
 ---
 
-> 📖 本文是 Celestial Oracle AI App 的产品功能文档。配套文档：[技术架构](/technical-architecture/)。
+> 🔙 [返回 Celestial Oracle 总览](/celestial-oracle/)
 {: .prompt-info }
 
 # Celestial Oracle — 产品功能文档
