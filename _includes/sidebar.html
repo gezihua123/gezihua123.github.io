@@ -18,6 +18,7 @@
 
   <nav class="flex-column flex-grow-1 w-100 ps-0">
     <ul class="nav">
+      <!-- TABS:{{ site.tabs | map: "title" | join: "," }}-->
       <!-- home -->
       <li class="nav-item{% if page.layout == 'home' %}{{ " active" }}{% endif %}">
         <a href="{{ '/' | relative_url }}" class="nav-link">
