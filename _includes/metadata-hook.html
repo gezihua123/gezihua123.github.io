@@ -1,0 +1,71 @@
+<!-- Custom metadata for LLM and SEO optimization -->
+
+{%- if page.tags -%}
+  <meta name="keywords" content="{{ page.tags | join: ', ' }}">
+{%- endif -%}
+
+{%- if page.layout == 'page' or page.layout == 'post' -%}
+  {%- assign page_url = page.url | default: '' -%}
+
+  {%- if page_url contains '/phonefast/' or page_url contains '/phonefast-en/' -%}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": {{ page.title | default: site.title | jsonify }},
+      "description": {{ page.description | default: site.description | jsonify }},
+      "proficiencyLevel": "Beginner",
+      "about": {
+        "@type": "Thing",
+        "name": "Android Phone Automation",
+        "description": "Android手机自动化工具，AI Agent移动端验证"
+      },
+      "keywords": {{ page.tags | join: ', ' | default: 'Android automation, AI Agent, phone automation' | jsonify }},
+      "url": "{{ site.url }}{{ page.url }}",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ site.url }}{{ page.url }}"
+      }
+    }
+    </script>
+
+  {%- elsif page_url contains '/celestial-oracle/' -%}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": {{ page.title | default: 'Celestial Oracle' | jsonify }},
+      "description": {{ page.description | default: '端侧 AI 命理 App' | jsonify }},
+      "proficiencyLevel": "Beginner",
+      "about": {
+        "@type": "Thing",
+        "name": "AI Fortune Telling",
+        "description": "端侧 AI 命理，八字排盘，BaZi"
+      },
+      "keywords": {{ page.tags | join: ', ' | default: 'AI, BaZi, 八字, fortune telling' | jsonify }},
+      "url": "{{ site.url }}{{ page.url }}",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ site.url }}{{ page.url }}"
+      }
+    }
+    </script>
+
+  {%- elsif page.layout == 'post' -%}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": {{ page.title | jsonify }},
+      "description": {{ page.description | jsonify }},
+      "keywords": {{ page.tags | join: ', ' | jsonify }},
+      "author": {
+        "@type": "Person",
+        "name": {{ page.author | default: site.social.name | jsonify }}
+      },
+      "url": "{{ site.url }}{{ page.url }}"
+    }
+    </script>
+
+  {%- endif -%}
+{%- endif -%}
