@@ -5,8 +5,8 @@ order: 8
 title: 产品功能
 permalink: /celestial-oracle/product-features/
 mermaid: true
-description: Celestial Oracle 产品功能详解 — 四大核心功能：八字命盘（BaZi Chart）、每日运势（Daily Fortune）、梦境解析（Dream Interpretation）、人生运程（Life Timeline）。AI 端侧推理，隐私优先。
-tags: [Celestial Oracle, 八字命盘, BaZi, 每日运势, 梦境解析, 人生运程, AI命理, 产品功能]
+description: Celestial Oracle 产品功能详解 — 四大核心功能：八字命盘（BaZi Chart）、每日运势（Daily Fortune）、梦境解析（Dream Interpretation）、人生运程（Life Timeline）。AI 端侧推理，隐私优先。支持黄道吉凶、建除十二星、五行评分、十神人格原型、大运推算。
+tags: [Celestial Oracle, 八字命盘, BaZi, 每日运势, 梦境解析, 人生运程, AI命理, 产品功能, 黄道吉凶, 建除十二星, 五行评分, 十神, 大运推算, 端侧AI, Qwen3-0.6B, 隐私优先, 一次性购买, 离线运行, 东方命理]
 ---
 
 > 🔙 [返回 Celestial Oracle 总览](/celestial-oracle/)

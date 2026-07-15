@@ -5,8 +5,8 @@ order: 9
 title: 技术架构
 permalink: /celestial-oracle/technical-architecture/
 mermaid: true
-description: Celestial Oracle 技术架构详解 — 7 角色 AI Agent 多角色协作系统、端侧 AI 推理引擎（MNN + llama.cpp 双引擎）、命理计算引擎、Kotlin Multiplatform 跨平台架构。
-tags: [Celestial Oracle, 技术架构, AI Agent, MNN, llama.cpp, 端侧推理, Kotlin Multiplatform, 架构设计]
+description: Celestial Oracle 技术架构详解 — 7 角色 AI Agent 多角色协作系统（CO/PM/RD/DD/CR/QA/UI）、端侧 AI 推理引擎（MNN + llama.cpp 双引擎）、命理计算引擎（八字排盘/梅花易数/大运拦截链）、Kotlin Multiplatform 跨平台架构。含 JNI/C++/OpenCL/GGUF/INT4 量化等底层技术细节。
+tags: [Celestial Oracle, 技术架构, AI Agent, MNN, llama.cpp, 端侧推理, Kotlin Multiplatform, 架构设计, Compose Multiplatform, 多Agent协作, JNI, C++, OpenCL, GGUF, INT4量化, SQLDelight, Ktor, Koin, 梅花易数, 命理计算, 跨平台]
 ---
 
 > 🔙 [返回 Celestial Oracle 总览](/celestial-oracle/)

@@ -1,25 +1,104 @@
 # phonefast
 
 > phonefast — 把你的 Android 手机变成 AI Agent 的原生外设。10ms 级响应、原子级 observe、MCP 原生多模态、工业级自愈。
-> phonefast — Turn your Android phone into an AI Agent's native peripheral. 10ms response, atomic observe, MCP native multimodal, industrial-grade self-healing.
+> Turn your Android phone into an AI Agent's native peripheral with 10ms response time, atomic observe, MCP native multimodal support, and industrial-grade self-healing.
 
-## phonefast (Android Phone Automation / Android 手机自动化)
+---
 
-- [phonefast 中文版](/phonefast/): Android 手机自动化工具，专注 AI Agent 移动端验证，比 ADB shell 快 100 倍。Go 语言实现，基于 scrcpy 协议，10ms 级触控延迟。支持安卓手机控制、自动化测试、手机调试、免 root。
-- [phonefast (English)](/phonefast-en/): Android phone automation tool for AI Agent mobile verification. 100x faster than ADB shell. Go + scrcpy, <10ms touch latency. Supports device automation, mobile testing, Android debugging, no root required.
+## phonefast — Android 手机自动化 / Android Phone Automation
 
-## Celestial Oracle (On-device AI Fortune Telling / 端侧 AI 命理)
+### [phonefast 中文版](/phonefast/)
 
-- [Celestial Oracle](/celestial-oracle/): 端侧 AI 命理 App 总览。6 亿参数 AI 模型本地运行，隐私优先，无需注册。将 1300 年历史的中国皇家命理系统（八字/紫微）翻译成诗意英文。
-- [产品功能 (Features)](/celestial-oracle/product-features/): 四大核心功能 — 八字命盘（BaZi Chart）、每日运势（Daily Fortune）、梦境解析（Dream Interpretation）、人生运程（Life Timeline）。Four core features of Celestial Oracle.
-- [技术架构 (Architecture)](/celestial-oracle/technical-architecture/): 完整技术架构文档 — 7 角色 AI Agent 协作系统、MNN + llama.cpp 双引擎端侧推理、Kotlin Multiplatform 跨平台、命理计算引擎。Full technical architecture documentation.
+Android 手机自动化工具，专注 AI Agent 移动端验证，比 ADB shell 快 100 倍。Go 语言实现，基于 scrcpy 协议，daemon 常驻进程 + Unix Socket JSON-RPC。
 
-## About / 关于
+**核心知识点：**
+- 速度对比：tap 13ms（vs ADB 8,505ms）、screenshot 28ms（vs 8,939ms）、type_text 1ms — 均快 100-1000 倍
+- 架构：Go 原生二进制（11MB）、冷启动 <10ms、scrcpy-server 设备端常驻
+- 截图管线：v1.0.11 重构为 astiav CGO 进程内解码（替代 ffmpeg 子进程），P50 28ms
+- UI 获取：自定义 UISocketHandler（scrcpy-server 扩展），比 uiautomator dump 快 40%
+- MCP 协议：支持 SSE/STDIO，原生返回 ImageContent（不再把 base64 塞进 JSON）
+- 保活机制：三级保活（TCP keepalive 15/30s + healthLoop 10s + 写失败检测）
+- 长稳压测：12 小时 145,843 次操作，100% 成功率，RSS <62MB
+- 安装：`npx skills add gezihua123/phonefast-skill`
 
-- [关于本站 (About)](/about/): 编程老司机的博客主页，专注 Android 基础框架与 Android AI 开发。Blog about Android development and AI.
-- [文章归档 (Archives)](/archives/): 全部文章时间线。All posts timeline.
-- [分类 (Categories)](/categories/): 按主题浏览内容。Browse by topic.
-- [标签 (Tags)](/tags/): 按标签索引内容。Browse by tags.
+**对比 adb kill（Python/PyInstaller）：** 冷启动 6-8s（PyInstaller 解压 1s + 模块导入 2-3s + ADB 检测 1s），每次命令 ~7-9s
+**对比 agent-device（TypeScript/Node.js）：** 冷启动 ~500ms，命令延迟 450-750ms
+
+### [phonefast (English)](/phonefast-en/)
+
+Android phone automation tool for AI Agent mobile verification. 100x faster than ADB shell. Go + scrcpy, <10ms touch latency.
+
+**Key knowledge:**
+- Speed: tap 13ms (43x vs agent-device, 709x vs adb kill), screenshot 28ms (93x / 319x), type_text 1ms (32,700x / 7,890x)
+- Architecture: Go native binary (11MB), cold start <10ms, scrcpy-server resident on device
+- Screenshot pipeline: v1.0.11 astiav CGO in-process decode (replaced ffmpeg subprocess), P50 28ms; ffmpeg fallback path retained
+- UI: Custom UISocketHandler (scrcpy-server extension), ~40% faster than uiautomator dump
+- MCP: SSE/STDIO, native ImageContent return (eliminates base64-in-JSON token bloat)
+- Keepalive: Three-level (TCP keepalive + healthLoop + write failure detection), auto-reconnect
+- Stress test: 12 hours, 145,843 ops, 100% success, <62MB RSS
+- Install: `npx skills add gezihua123/phonefast-skill`
+
+**vs adb kill (Python/PyInstaller):** Cold start 6-8s, per-command ~7-9s
+**vs agent-device (TypeScript/Node.js):** Cold start ~500ms, per-command 450-750ms
+
+---
+
+## Celestial Oracle — 端侧 AI 命理 / On-device AI Fortune Telling
+
+### [Celestial Oracle](/celestial-oracle/)
+
+端侧 AI 命理 App 总览。面向美国市场 25-45 岁对东方命理好奇的英语用户。
+
+**核心知识点：**
+- 定位：不是你口袋里的星座 App，是 1300 年前的中国皇家命理系统 + AI 翻译
+- AI 模型：Qwen3-0.6B（6 亿参数），端侧运行，无需注册，出生日期不上传
+- 推理引擎：阿里 MNN（主力）+ llama.cpp（回退）双引擎，支持 CPU INT8 / GPU OpenCL
+- 平台：Android + iOS（Kotlin Multiplatform + Compose Multiplatform）
+- 隐私：无账号体系，数据仅存设备本地（MMKV），prompt 不上传
+- 付费：一次性购买（非订阅制），仅梦境 AI 功能付费，核心命理免费
+
+### [产品功能 (Features)](/celestial-oracle/product-features/)
+
+四大核心功能详细说明：
+
+**功能一：八字命盘（BaZi Chart）** — 输入出生年月日时+性别 → 生成命盘（年柱/月柱/日柱/时柱 + 五行分布 + 本命卦 + 日主旺弱 + 四维度评分 Career/Wealth/Edu/Love）
+**功能二：每日运势（Daily Fortune）** — 结合八字命盘 + 当日黄道吉凶 + 建除星 → 专属宜忌 + 时辰吉凶地图 + AI 解读；不同八字同一天看到完全不同内容
+**功能三：梦境解析（Dream Interpretation）** — 两步体验：Phase 1 即时匹配周公分梦符号库（~10ms），Phase 2 AI 流式润色逐字书写；7 大类 100+ 符号
+**功能四：人生运程（Life Timeline）** — 8 步大运每步 10 年，阳顺阴逆推算；往昔运程扫描冲/合/伏吟等关键年
+
+附加：视觉语言（深紫黑 #0D0B1A + 金色 #F5C842 + 动态星空 + 毛玻璃卡片）、隐私设计（无注册/端侧推理/设备本地存储）、付费模式（一次性购买）
+
+### [技术架构 (Architecture)](/celestial-oracle/technical-architecture/)
+
+完整技术架构文档，分两大部分：
+
+**第一部分：开发侧 — 7 角色 AI Agent 协作系统**
+- Agent 角色矩阵：CO（协调者）→ PM（产品经理）/ RD（全栈工程师）/ DD（数据工程师）/ CR（规范守护者）/ QA（质量专家）/ UI（交互专家）
+- 文档驱动通信：Agent 通过共享文档（PRD.md/ART.md/DEV.md/UI.md/BUG.md/history.md）协作
+- 五种标准工作流：数据开发/功能开发/UI 审查/黑盒测试/产品校验
+- 铁律：Agent 空闲超 2 次提醒 → CO 接管；每阶段后 compact 压缩上下文
+
+**第二部分：产品侧 — 端侧 AI 推理引擎**
+- 双引擎设计：MNN（主力，Qwen3-0.6B INT4 ~432MB）+ llama.cpp（回退，Qwen2.5-0.5B GGUF q2_k ~400MB）
+- MNN 引擎核心：共享 Deferred 模式防并发加载、GPU 智能开关（高端设备阈值）、channelFlow 流式推理
+- 业务集成：每日运势（非流式 AI 润色，LLM 失败降级规则模板）、梦境解析（Phase 1 规则匹配 + Phase 2 流式 "书写" 体验，200ms 轮询批处理）
+- 四层容错：L1 LLM 流式 → L2 LLM 非流式 → L3 规则模板 → L4 硬编码 fallback
+- 模型下载：多源故障转移（HuggingFace → HF Mirror → ModelScope）+ 断点续传（HTTP Range）+ SHA-256 校验
+
+**第三部分：命理计算引擎**
+- 7 步推理流水线：农历转换 → 八字排盘（年柱立春/月柱五虎遁元/日柱 JDN/时柱五鼠遁元）→ 十神映射 → 梅花易数 → SQLite 条件评估 → TFLite DYFM 模型 → 大运拦截链
+- 大运拦截链：Chain of Responsibility 模式（fold 实现），DataFetch → YearEvent → TextBuild
+
+**技术栈全览：** Compose Multiplatform / Kotlin Multiplatform / MNN / llama.cpp / SQLDelight / MMKV / Ktor / Koin / JNI + C++ / OpenCL / INT4 量化 / GGUF
+
+---
+
+## 关于本站 / About
+
+- [关于本站 (About)](/about/): 编程老司机的博客主页，专注 Android 基础框架与 Android AI 开发，全干工程师。GitHub/Twitter/Email 联系方式。
+- [文章归档 (Archives)](/archives/): 全部文章按时间排列。All posts chronological timeline.
+- [分类 (Categories)](/categories/): 按主题浏览内容。Browse by topic (新闻/技术 etc.).
+- [标签 (Tags)](/tags/): 按标签索引内容。Browse by tags (phonefast/release etc.).
 
 ---
 

@@ -2,8 +2,8 @@
 icon: fas fa-robot
 order: 2
 title: phonefast-EN
-description: phonefast — Android phone automation tool designed for AI Agent mobile verification. <10ms touch latency, atomic observe (screenshot + UI tree in one call), MCP native multimodal, 100x faster than ADB shell. Open-source Android control solution for device automation, mobile testing, and AI agent tool use.
-tags: [Android automation, AI Agent, mobile automation, Android phone control, MCP protocol, scrcpy, ADB alternative, device automation, mobile testing, AI testing, Android debugging, no root, low latency, open source]
+description: phonefast — Android phone automation tool designed for AI Agent mobile verification. <10ms touch latency, atomic observe (screenshot + UI tree in one call), MCP native multimodal, 100x faster than ADB shell. Open-source Android control solution for device automation, mobile testing, AI agent tool use, and remote device control.
+tags: [Android automation, AI Agent, mobile automation, Android phone control, MCP protocol, scrcpy, ADB alternative, device automation, mobile testing, AI testing, Android debugging, no root, low latency, open source, screen mirroring, remote control, Vibe Coding, Harness Coding, Claude Code, AI coding, touch simulation, Go, phone assistant, MCP, performance testing, mobile development, scrcpy-server, daemon, JSON-RPC, benchmark, keepalive, self-heal, token optimization]
 ---
 
 **Have you ever encountered these issues?**
