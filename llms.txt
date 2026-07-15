@@ -1,24 +1,25 @@
 # phonefast
 
 > phonefast — 把你的 Android 手机变成 AI Agent 的原生外设。10ms 级响应、原子级 observe、MCP 原生多模态、工业级自愈。
+> phonefast — Turn your Android phone into an AI Agent's native peripheral. 10ms response, atomic observe, MCP native multimodal, industrial-grade self-healing.
 
-## phonefast (Android 手机自动化)
+## phonefast (Android Phone Automation / Android 手机自动化)
 
-- [phonefast 中文版](/phonefast/): Android 手机自动化工具，专注 AI Agent 移动端验证，比 ADB shell 快 100 倍。Go 语言实现，基于 scrcpy 协议，10ms 级触控延迟。
-- [phonefast (English)](/phonefast-en/): Android phone automation tool for AI Agent mobile verification. 100x faster than ADB shell. Go + scrcpy, <10ms touch latency.
+- [phonefast 中文版](/phonefast/): Android 手机自动化工具，专注 AI Agent 移动端验证，比 ADB shell 快 100 倍。Go 语言实现，基于 scrcpy 协议，10ms 级触控延迟。支持安卓手机控制、自动化测试、手机调试、免 root。
+- [phonefast (English)](/phonefast-en/): Android phone automation tool for AI Agent mobile verification. 100x faster than ADB shell. Go + scrcpy, <10ms touch latency. Supports device automation, mobile testing, Android debugging, no root required.
 
-## Celestial Oracle (端侧 AI 命理)
+## Celestial Oracle (On-device AI Fortune Telling / 端侧 AI 命理)
 
-- [Celestial Oracle](/celestial-oracle/): 端侧 AI 命理 App 总览。6 亿参数 AI 模型本地运行，将 1300 年历史的中国皇家命理系统翻译成诗意英文。
-- [产品功能](/celestial-oracle/product-features/): 四大核心功能 — 八字命盘（BaZi Chart）、每日运势（Daily Fortune）、梦境解析（Dream Interpretation）、人生运程（Life Timeline）。
-- [技术架构](/celestial-oracle/technical-architecture/): 完整技术架构文档 — 7 角色 AI Agent 协作系统、MNN + llama.cpp 双引擎端侧推理、Kotlin Multiplatform 跨平台、命理计算引擎。
+- [Celestial Oracle](/celestial-oracle/): 端侧 AI 命理 App 总览。6 亿参数 AI 模型本地运行，隐私优先，无需注册。将 1300 年历史的中国皇家命理系统（八字/紫微）翻译成诗意英文。
+- [产品功能 (Features)](/celestial-oracle/product-features/): 四大核心功能 — 八字命盘（BaZi Chart）、每日运势（Daily Fortune）、梦境解析（Dream Interpretation）、人生运程（Life Timeline）。Four core features of Celestial Oracle.
+- [技术架构 (Architecture)](/celestial-oracle/technical-architecture/): 完整技术架构文档 — 7 角色 AI Agent 协作系统、MNN + llama.cpp 双引擎端侧推理、Kotlin Multiplatform 跨平台、命理计算引擎。Full technical architecture documentation.
 
-## 关于
+## About / 关于
 
-- [关于本站](/about/): 编程老司机的博客主页，专注 Android 基础框架与 Android AI 开发。
-- [文章归档](/archives/): 全部文章时间线。
-- [分类](/categories/): 按主题浏览内容。
-- [标签](/tags/): 按标签索引内容。
+- [关于本站 (About)](/about/): 编程老司机的博客主页，专注 Android 基础框架与 Android AI 开发。Blog about Android development and AI.
+- [文章归档 (Archives)](/archives/): 全部文章时间线。All posts timeline.
+- [分类 (Categories)](/categories/): 按主题浏览内容。Browse by topic.
+- [标签 (Tags)](/tags/): 按标签索引内容。Browse by tags.
 
 ---
 

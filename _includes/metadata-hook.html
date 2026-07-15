@@ -8,6 +8,13 @@
   {%- assign page_url = page.url | default: '' -%}
 
   {%- if page_url contains '/phonefast/' or page_url contains '/phonefast-en/' -%}
+    {%- if page_url contains '-en' -%}
+      {%- assign about_name = 'Android Phone Automation' -%}
+      {%- assign about_desc = 'Android phone automation tool, AI Agent mobile verification' -%}
+    {%- else -%}
+      {%- assign about_name = 'Android Phone Automation' -%}
+      {%- assign about_desc = 'Android手机自动化工具，AI Agent移动端验证' -%}
+    {%- endif -%}
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -17,8 +24,8 @@
       "proficiencyLevel": "Beginner",
       "about": {
         "@type": "Thing",
-        "name": "Android Phone Automation",
-        "description": "Android手机自动化工具，AI Agent移动端验证"
+        "name": "{{ about_name }}",
+        "description": "{{ about_desc }}"
       },
       "keywords": {{ page.tags | join: ', ' | default: 'Android automation, AI Agent, phone automation' | jsonify }},
       "url": "{{ site.url }}{{ page.url }}",
@@ -30,6 +37,13 @@
     </script>
 
   {%- elsif page_url contains '/celestial-oracle/' -%}
+    {%- if page_url contains '-en' -%}
+      {%- assign about_name = 'AI Fortune Telling' -%}
+      {%- assign about_desc = 'On-device AI fortune telling, BaZi Chinese astrology' -%}
+    {%- else -%}
+      {%- assign about_name = 'AI Fortune Telling' -%}
+      {%- assign about_desc = '端侧 AI 命理，八字排盘，BaZi' -%}
+    {%- endif -%}
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -39,8 +53,8 @@
       "proficiencyLevel": "Beginner",
       "about": {
         "@type": "Thing",
-        "name": "AI Fortune Telling",
-        "description": "端侧 AI 命理，八字排盘，BaZi"
+        "name": "{{ about_name }}",
+        "description": "{{ about_desc }}"
       },
       "keywords": {{ page.tags | join: ', ' | default: 'AI, BaZi, 八字, fortune telling' | jsonify }},
       "url": "{{ site.url }}{{ page.url }}",
