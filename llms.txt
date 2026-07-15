@@ -50,7 +50,7 @@ Android phone automation tool for AI Agent mobile verification. 100x faster than
 端侧 AI 命理 App 总览。面向美国市场 25-45 岁对东方命理好奇的英语用户。
 
 **核心知识点：**
-- 定位：不是你口袋里的星座 App，是 1300 年前的中国皇家命理系统 + AI 翻译
+- 定位：不是你口袋里的星座 App，是 1300 年前的中国皇家八字命理系统 + AI 翻译（唐代李虚中三柱法 → 宋代徐子平四柱八字）
 - AI 模型：Qwen3-0.6B（6 亿参数），端侧运行，无需注册，出生日期不上传
 - 推理引擎：阿里 MNN（主力）+ llama.cpp（回退）双引擎，支持 CPU INT8 / GPU OpenCL
 - 平台：Android + iOS（Kotlin Multiplatform + Compose Multiplatform）
