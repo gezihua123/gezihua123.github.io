@@ -4,9 +4,8 @@ icon: fas fa-clipboard-list
 order: 8
 title: 产品功能
 permalink: /ming/product-features/
-mermaid: true
-description: Ming 产品功能详解 — 四大核心功能：八字命盘（BaZi Chart）、每日运势（Daily Fortune）、梦境解析（Dream Interpretation）、人生运程（Life Timeline）。AI 端侧推理，隐私优先。支持黄道吉凶、建除十二星、五行评分、十神人格原型、大运推算。
-tags: [Ming, 八字命盘, BaZi, 每日运势, 梦境解析, 人生运程, AI命理, 产品功能, 黄道吉凶, 建除十二星, 五行评分, 十神, 大运推算, 端侧AI, Qwen3-0.6B, 隐私优先, 一次性购买, 离线运行, 东方命理]
+description: Ming — 端侧 AI 命理 App。输入出生时间，获得八字命盘、每日运势、梦境解析、人生运程。Qwen3-0.6B 本地推理，无需注册，隐私优先。
+tags: [Ming, 八字命盘, BaZi, 每日运势, 梦境解析, 人生运程, AI命理, 产品功能, 端侧AI, Qwen3-0.6B, 隐私优先, 离线运行, 东方命理]
 redirect_from:
   - /celestial-oracle/product-features/
 ---
@@ -14,280 +13,647 @@ redirect_from:
 > 🔙 [返回 Ming 总览](/ming/)
 {: .prompt-info }
 
-# Ming — 产品功能文档
-
-**版本：** 1.11.1
-**更新日期：** 2026-07-23
-**维护者：** [PM]
-**目标用户：** 美国市场，对东方命理好奇的 25-45 岁英语用户
-
----
-
-## 🎯 一句话定位
-
-> **Ming** 不是星座 App。它是你口袋里的一千三百年前的中国皇家命理系统 — 用 AI 翻译成你能读懂的诗意英文。
-
----
-
-## ✨ 为什么与众不同？
-
-市面上有 300+ 个星座/占星 App。Ming 做三件完全不同的事：
-
-### 1. 它算"你"，不算"星座"
-
-星座用生日月份把 80 亿人分成 12 种。八字（BaZi）用你的**年、月、日、时辰**四个维度，排列出 100 万+ 种组合。
-
-你的命盘是**唯一**的。月柱相同，时辰不同，命运截然不同。
-
-### 2. 它在你的手机上运行 AI，不上传你的生日
-
-所有计算 — 农历转换、八字排盘、十神推演、AI 解读 — 全部在设备本地完成。你不需要注册账号，你的出生日期永不上传服务器。
-
-端侧运行一个 6 亿参数的 AI 模型（Qwen3-0.6B），把你的命理数据润色成温暖诗意的英文。**隐私不是功能，是默认。**
-
-### 3. 它的知识体系有 1300 年历史
-
-唐代李虚中创立三柱法，宋代徐子平完善为四柱八字。Ming 的算法直接映射这套体系：
-
-- **八字排盘** → 对照《穷通宝典》《滴天髓》
-- **十神关系** → 五行生克 × 阴阳同异 → 十种人格原型
-- **大运推算** → 阳顺阴逆，3 日折 1 岁起运
-- **每日吉凶** → 黄道黑道十二神 + 建除十二星
-- **梦境解析** → 《周公解梦》经典符号库
-
----
-
-## 🧭 四大核心功能
-
-### 功能一：八字命盘 — 你的人生蓝图
-
-> *"这不是星座运势，这是你的出厂设置。"*
-
-**做什么：** 输入你的出生年月日时和性别，系统生成一份完整的八字命盘。
-
-**输出内容：**
-
-```
-┌─────────────────────────────────────┐
-│         ☯ 八字命盘 (BaZi Chart)      │
-│                                     │
-│   年柱  月柱  日柱  时柱             │
-│   甲寅  丙午  戊辰  壬子             │
-│                                     │
-│   五行分布 ████░░░░░ 木 3           │
-│            ██░░░░░░░ 火 1           │
-│            ███░░░░░░ 土 2           │
-│            ██░░░░░░░ 金 1           │
-│            █░░░░░░░░ 水 1           │
-│                                     │
-│   本命卦：䷀ 乾为天                   │
-│   日主旺弱：身强                     │
-└─────────────────────────────────────┘
-
-┌───────┬───────┬───────┬───────┐
-│  💼   │  💰   │  📚   │  💕   │
-│Career │Wealth │Edu    │Love   │
-│  78   │  62   │  85   │  54   │
-└───────┴───────┴───────┴───────┘
-```
-
-**每个维度展开后：**
-- 📊 评分环 (0-100)
-- 🏷️ 五行属性标签（如 "Metal → Authority"）
-- 📝 概要解读（一句话总结）
-- 📖 详细解读（2-3 段命理分析）
-- 💡 行动建议（具体可执行的指导）
-
-**用户价值：**
-- 了解自己的先天特质和潜在优势
-- 获得四个关键维度的客观评估
-- 看到 80 年人生运程的完整时间线
-
----
-
-### 功能二：每日运势 — 今天的宇宙天气
-
-> *"出门前看天气预报，做决定前看运势报告。"*
-
-**做什么：** 每天自动结合你的八字命盘 + 当日黄道吉凶，计算今日专属运势。
-
-**不是通用运势。** 同一天，不同八字的人看到的内容完全不同。
-
-**计算逻辑：**
-```
-你的日主（戊土） + 今日日柱（甲子） + 黄道（青龙·吉） + 建除星（建日）
-        ↓
-   专属宜忌 + 0-100 评分 + 时辰吉凶地图
-```
-
-**输出内容：**
-
-| 模块 | 内容 |
-|------|------|
-| 🌟 运势总结卡 | 吉凶等级 + 一句概括（如 "Azure Dragon rises — a day of noble support"） |
-| 📈 7 日趋势 | 折线图展示未来一周运势走向 |
-| 🤲 宜忌列表 | Embrace: 签约 / 出行 / 社交 · Avoid: 诉讼 / 投资 |
-| 🕐 时辰地图 | 12 时辰逐时吉凶（子时吉→丑时平→寅时凶...） |
-| 🧠 AI 解读 | 2-3 句温暖诗意英文 + 一个可执行建议 |
-
-**用户价值：**
-- 每天 30 秒获得决策参考
-- 知道什么时间做什么事最有利
-- 7 日趋势帮助提前规划
-
----
-
-### 功能三：梦境解析 — 你的潜意识翻译器
-
-> *"周公解梦遇见 AI，三千年前的符号学用现代英语讲述给你。"*
-
-**做什么：** 输入你的梦境描述，系统匹配周公解梦符号库，AI 将古老解读润色成你能共鸣的文字。
-
-**两步走体验设计：**
-
-```
-你输入：「I dreamed of a snake in water」
-         │
-Phase 1 ─┼─ 即时返回（~10ms）
-         │  匹配符号：蛇(火) + 水(水) → 水火既济
-         │  显示周公经典释义 + 五行分析 + 吉凶判定
-         │
-Phase 2 ─┼─ 流式润色（数秒）
-         │  AI 逐字写出诗意解读
-         │  「The serpent in water speaks of wisdom
-         │   rising from the depths of your unconscious.
-         │   Pay attention to a message carried by
-         │   someone you trust...」
-```
-
-**符号知识库：**
-- 7 大类：动物 / 自然 / 人物 / 物品 / 行为 / 场所 / 身体
-- 100+ 符号，每个含中英文释义
-- 每条释义追溯《周公解梦》经典原文
-
-**用户价值：**
-- 理解梦境可能指向的情绪或事件
-- 获得五行视角的元素分析
-- 看着 AI 逐字书写 — 一种治愈的仪式感
-
----
-
-### 功能四：人生运程 — 你的 80 年时间线
-
-> *"八字不只看现在，看的是你一生的起伏节奏。"*
-
-**做什么：** 基于八字推算 8 步大运，每步 10 年，覆盖你的一生。
-
-**核心机制：**
-
-```
-起运年龄：你出生日到下一个「节」的天数 ÷ 3
-方向：阳年男顺排 / 阴年女逆排
-
-你的运程：
-┌────────────────────────────────────────────┐
-│ 0-8岁   8-18   18-28   28-38 ▶ 38-48  ... │
-│  丙辰    丁巳    戊午    己未    庚申       │
-│  (运前)           Rising    Peak  Current  │
-│                                            │
-│ 关键转折年：2028（日柱逢冲）、2035（伏吟）  │
-└────────────────────────────────────────────┘
-```
-
-**往昔运程的特别处理：**
-
-过去的运程不是套模板 — 系统会实际扫描那 10 年中的每一年，标记：
-- ⚡ **地支六冲**（如子午冲）— 重大变动年
-- 🤝 **地支六合**（如子丑合）— 贵人合作年
-- 🔄 **伏吟**（年干同日主）— 自我审视年
-
-这些真实事件被编织成个性化叙述，而不是通用文案。
-
-**用户价值：**
-- 看到人生的大节奏（什么时候适合冲刺、什么时候应该积累）
-- 回顾往昔运程，验证体系的准确性
-- 为未来关键年份做心理准备
-
----
-
-## 🎨 体验设计
-
-### 视觉语言：深夜星空 × 金色命理
-
-| 元素 | 设计 |
-|------|------|
-| 背景 | 深紫黑色 (#0D0B1A) + 80 颗动态闪烁星星 + 6 颗金色"幸运星" |
-| 强调色 | 金色 (#F5C842) — 唯一彩色，用于 CTA、评分、激活态 |
-| 卡片 | 半透明毛玻璃 (rgba(255,255,255, 0.07) + 1px 边框) |
-| 字体 | 4 档字号，2 种字重，数字用等宽字体 |
-| 动效 | 渐入动画、CTA 星星粒子散开、评分环径向动画 |
-
-### 品牌触点
-
-- 启动页：MING 渐入 + "Ancient wisdom meets your modern life"
-- 个人中心：金色光晕 Hero 区，展示解读次数/连续天数/解梦次数
-- 底部导航：Home · Daily · Dream · Me，金色激活态
-
----
-
-## 🔒 隐私与付费
-
-### 隐私设计
-
-- 无需注册账号
-- 出生日期仅存于设备本地（MMKV）
-- AI 推理全程端侧执行，不发送任何数据到服务器
-- 首次启动展示隐私协议，必须同意方可使用
-
-### 付费模式
-
-| 功能 | 免费 | 付费 |
-|------|------|------|
-| 八字命盘 | ✅ 无限 | — |
-| 每日运势 | ✅ 无限 | — |
-| 人生运程 | ✅ 无限 | — |
-| 梦境解析 | 每周 3 次 | 一次性购买解锁无限（AI Dream Reading） |
-
-不是订阅制 — 一次购买，永久解锁。只有梦境 AI 功能需要付费，核心命理功能完全免费。
-
----
-
-## 📱 技术事实
-
-| 指标 | 数据 |
-|------|------|
-| AI 模型 | Qwen3-0.6B（6 亿参数），MNN INT4 量化，端侧运行 |
-| 推理引擎 | 阿里 MNN 主力 + llama.cpp 回退，双引擎 |
-| 农历数据 | 1900-2100 年完整覆盖，含闰月 + 节气精确日期 |
-| 八字规则 | 对照《穷通宝典》《滴天髓》校准，含十神生克 |
-| 日运计算 | 黄道黑道十二神煞 + 建除十二星，逐时吉凶地图 |
-| 大运引擎 | 阳顺阴逆标准算法 + 年事件冲合伏吟扫描 |
-| 平台 | Android 10+ / iOS 16+（Kotlin Multiplatform + Compose） |
-| 首次加载 | ~456MB AI 模型下载（仅一次，含断点续传） |
-
----
-
-## 🚀 使用场景
-
-| 场景 | 怎么用 |
-|------|--------|
-| ☕ 早晨例行 | 打开 Daily Fortune，花 30 秒看一下今天的宜忌和 AI 解读 |
-| 🤔 重大决策前 | 查看八字命盘对应维度，了解自己的先天倾向 |
-| 🌙 做了奇怪的梦 | 打开 Dream，输入描述，看周公和 AI 怎么说 |
-| 📅 年度规划 | 看 Timeline，了解自己处于哪个大运，下一个转折年是什么时候 |
-| 🎉 和朋友分享 | 截图分享你的命盘或每日运势到社交媒体 |
-
----
-
-## 📖 附录：术语速查
-
-| English | 中文 | 一句话解释 |
-|---------|------|-----------|
-| BaZi / Four Pillars | 八字 | 年月日时四柱天干地支 |
-| Day Master | 日主 | 你的核心五行属性（日柱天干） |
-| Ten Gods | 十神 | 十种人际关系原型 |
-| WuXing | 五行 | 木火土金水相生相克 |
-| DaYun | 大运 | 10 年一步的人生运程周期 |
-| LiuNian | 流年 | 每一年的能量 |
-| Heavenly Stem | 天干 | 甲乙丙丁戊己庚辛壬癸 |
-| Earthly Branch | 地支 | 子丑寅卯辰巳午未申酉戌亥 |
+<!-- ═══════════════════════════════════════════ -->
+<!-- Hero -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="pf-hero">
+  <div class="pf-hero-icon">☯️</div>
+  <h1 class="pf-hero-title">Ming</h1>
+  <p class="pf-hero-desc">输入出生时间，AI 在手机本地为你排盘解运。<br>1300 年皇家命理，翻译成诗意英文。</p>
+  <div class="pf-badges">
+    <span>✓ 端侧 AI</span>
+    <span>✓ 无需注册</span>
+    <span>✓ 一次购买</span>
+  </div>
+  <div class="pf-hero-cta">
+    <a href="https://play.google.com/store/apps/details?id=com.photon.startup.app" class="pf-btn pf-btn-dark">Google Play 下载</a>
+    <a href="#" class="pf-btn pf-btn-outline">APK 下载</a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 截图轮播 -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="pf-section">
+  <h2 class="pf-section-title">一眼所见</h2>
+  <p class="pf-section-hint">左右滑动查看</p>
+  <div class="pf-carousel">
+    <div class="pf-carousel-track">
+      <div class="pf-phone-frame pf-placeholder">
+        <span>📱<br><small>八字命盘</small></span>
+      </div>
+      <div class="pf-phone-frame pf-placeholder">
+        <span>📱<br><small>每日运势</small></span>
+      </div>
+      <div class="pf-phone-frame pf-placeholder">
+        <span>📱<br><small>梦境解析</small></span>
+      </div>
+      <div class="pf-phone-frame pf-placeholder">
+        <span>📱<br><small>人生运程</small></span>
+      </div>
+      <div class="pf-phone-frame pf-placeholder">
+        <span>📱<br><small>个人中心</small></span>
+      </div>
+    </div>
+  </div>
+  <!-- 视频预留位 -->
+  <div class="pf-video-spot">
+    <div class="pf-video-placeholder">
+      <span>▶ 产品演示视频</span>
+      <small>即将上线</small>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 核心功能 -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="pf-section pf-bg-light">
+  <h2 class="pf-section-title">核心功能</h2>
+  <p class="pf-section-hint">四项能力，覆盖你与命理的全部接触点</p>
+  <div class="pf-feature-grid">
+    <div class="pf-feature-card">
+      <div class="pf-feature-emoji">🧭</div>
+      <h3>八字命盘</h3>
+      <p>输入出生年月日时，生成完整命盘。四柱天干地支、十神人格原型、五行分布评分、本命卦。日主身强身弱判定，四维度 0-100 量化评估。</p>
+    </div>
+    <div class="pf-feature-card">
+      <div class="pf-feature-emoji">🌤️</div>
+      <h3>每日运势</h3>
+      <p>你的八字 × 今日黄道神煞 × 建除十二星，三重计算得出专属宜忌。逐时吉凶地图覆盖子时到亥时。不是通用运势——同一天，不同八字看到的内容完全不同。</p>
+    </div>
+    <div class="pf-feature-card">
+      <div class="pf-feature-emoji">🌙</div>
+      <h3>梦境解析</h3>
+      <p>描述梦境，匹配《周公解梦》符号库，AI 逐字书写诗意解读。两步走：Phase 1 即时返回骨架，Phase 2 AI 流式润色。看着它一笔一划地写，像它正在思考。</p>
+    </div>
+    <div class="pf-feature-card">
+      <div class="pf-feature-emoji">📅</div>
+      <h3>人生运程</h3>
+      <p>8 步大运 × 10 年 = 80 年时间线。往昔运程逐日柱年份扫描六冲⚡六合🤝伏吟🔄，编织个性化叙述。未来运程走标准排盘链。不是模板套的。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 场景演示 -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="pf-section">
+  <h2 class="pf-section-title">说一句话，就能看到</h2>
+  <p class="pf-section-hint">用自然语言与你的命盘对话</p>
+  <div class="pf-chat-list">
+    <div class="pf-chat-row">
+      <div class="pf-chat-user">「 1992 年 7 月 3 日，下午 3 点，女 」</div>
+    </div>
+    <div class="pf-chat-row pf-chat-reply">
+      <span class="pf-chat-emoji">🧭</span>
+      <div class="pf-chat-sys">年柱壬申 · 月柱丙午 · 日柱辛巳 · 时柱丙申。日主辛金，身弱。Career 78 / Wealth 62 / Edu 85 / Love 54。本命卦 ䷀ 乾为天。</div>
+    </div>
+    <div class="pf-chat-row">
+      <div class="pf-chat-user">「 今天的运势怎么样 」</div>
+    </div>
+    <div class="pf-chat-row pf-chat-reply">
+      <span class="pf-chat-emoji">🌤️</span>
+      <div class="pf-chat-sys">Azure Dragon rises — a day of noble support. 黄道值青龙 · 建除逢开日，双重吉神叠加。Embrace: 签约 · 出行 · 社交。Avoid: 诉讼 · 投资。午时（11-13 点）最佳。</div>
+    </div>
+    <div class="pf-chat-row">
+      <div class="pf-chat-user">「 I dreamed of a snake in water 」</div>
+    </div>
+    <div class="pf-chat-row pf-chat-reply">
+      <span class="pf-chat-emoji">🌙</span>
+      <div class="pf-chat-sys">蛇属火，水属水，水火既济。周公曰：梦蛇入水，主远行有获。AI 逐字书写——<em>「The serpent in water speaks of wisdom rising from the depths of your unconscious…」</em></div>
+    </div>
+    <div class="pf-chat-row">
+      <div class="pf-chat-user">「 我的人生转折年在什么时候 」</div>
+    </div>
+    <div class="pf-chat-row pf-chat-reply">
+      <span class="pf-chat-emoji">📅</span>
+      <div class="pf-chat-sys">起运年龄 6 岁。当前处于己未大运（26-36 岁）。2028 年日柱逢冲 ⚡ 标记为重大变动年，2031 年伏吟 🔄 标记为自我审视年。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- vs 星座 -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="pf-section pf-bg-light">
+  <h2 class="pf-section-title">和星座 App 有什么不一样</h2>
+  <div class="pf-compare-grid">
+    <div class="pf-compare-item">
+      <div class="pf-compare-label">星座</div>
+      <p>用生日月份把 80 亿人分成 12 种。<br>今天是你的幸运日——和另外 6 亿人一样。</p>
+    </div>
+    <div class="pf-compare-item pf-compare-highlight">
+      <div class="pf-compare-label">Ming</div>
+      <p>年月日时四个维度，排列出 100 万+ 组合。<br>你的命盘和指纹一样独特。</p>
+    </div>
+    <div class="pf-compare-item">
+      <div class="pf-compare-label">星座</div>
+      <p>告诉你"你是什么样的人"——<br>巴纳姆效应，12 句文案轮流套。</p>
+    </div>
+    <div class="pf-compare-item pf-compare-highlight">
+      <div class="pf-compare-label">Ming</div>
+      <p>告诉你"你的出厂设置是什么"——<br>五行生克 × 十神关系 → 四维度客观评分。</p>
+    </div>
+    <div class="pf-compare-item">
+      <div class="pf-compare-label">星座</div>
+      <p>连服务器，注册账号，<br>你的出生信息存在别人的数据库里。</p>
+    </div>
+    <div class="pf-compare-item pf-compare-highlight">
+      <div class="pf-compare-label">Ming</div>
+      <p>Qwen3-0.6B 跑在手机本地。<br>没账号，没服务器，你的出生日期不出手机。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 隐私与付费 -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="pf-section">
+  <h2 class="pf-section-title">隐私，不是功能，是默认</h2>
+  <p class="pf-section-hint">所有计算在端侧完成。AI 推理、八字排盘、十神推演——全部离线。</p>
+  <div class="pf-privacy-grid">
+    <div class="pf-privacy-card">
+      <div class="pf-privacy-emoji">🔐</div>
+      <h4>无需注册</h4>
+      <p>没有账号系统。出生日期存在设备本地 MMKV。首次启动只有一件事：等你点同意隐私协议。</p>
+    </div>
+    <div class="pf-privacy-card">
+      <div class="pf-privacy-emoji">📴</div>
+      <h4>离线可用</h4>
+      <p>首次下载 AI 模型（约 456MB，断点续传）后，全部功能离线运行。prompt 不上传，数据不出设备。</p>
+    </div>
+    <div class="pf-privacy-card">
+      <div class="pf-privacy-emoji">💳</div>
+      <h4>一次购买</h4>
+      <p>核心功能完全免费。梦境 AI 润色每周免费 3 次，一次性购买永久解锁。不是订阅——只买一次。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- FAQ -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="pf-section pf-bg-light">
+  <h2 class="pf-section-title">常见问题</h2>
+  <div class="pf-faq">
+    <details class="pf-faq-item">
+      <summary>我的出生日期会被上传吗？</summary>
+      <p>不会。八字排盘、AI 推理全部在手机本地完成。Ming 没有服务器，没有账号系统。你的出生日期存在设备 MMKV 存储中，不联网。</p>
+    </details>
+    <details class="pf-faq-item">
+      <summary>为什么不注册也能用？</summary>
+      <p>因为没有服务器需要验证你的身份。所有计算在端侧完成——农历转换、八字排盘、十神推演、AI 润色，全部离线。</p>
+    </details>
+    <details class="pf-faq-item">
+      <summary>八字结果准不准？</summary>
+      <p>命理规则对照《穷通宝典》《滴天髓》校准，农历数据覆盖 1900-2100 年（含闰月和节气精确日期），黄道神煞规则对照 6tail.cn 农历 API。算法透明，模型可追溯。这不是玄学随机生成——它是规则驱动的。</p>
+    </details>
+    <details class="pf-faq-item">
+      <summary>需要联网吗？</summary>
+      <p>首次下载 AI 模型时需要（约 456MB，支持 HuggingFace / HF Mirror / ModelScope 三源自动切换，含断点续传）。下载完成后，所有功能离线可用。</p>
+    </details>
+    <details class="pf-faq-item">
+      <summary>支持什么平台？</summary>
+      <p>Android 10+ 和 iOS 16+。Kotlin Multiplatform + Compose Multiplatform，双端共享同一套 Domain 引擎代码。</p>
+    </details>
+    <details class="pf-faq-item">
+      <summary>AI 推理有多快？</summary>
+      <p>模型首次加载约 30-60 秒。推理本身对 0.6B 模型来说很快——日运润色 3-8 秒，梦境流式书写逐字输出，像人类打字的速度。</p>
+    </details>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- Footer -->
+<!-- ═══════════════════════════════════════════ -->
+<footer class="pf-footer">
+  <p class="pf-footer-brand">Ming — Ancient wisdom meets your modern life.</p>
+  <p class="pf-footer-copy">© Ming · 端侧 AI 命理 · 隐私优先</p>
+  <div class="pf-footer-links">
+    <a href="/ming/">Ming 总览</a>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- Styles -->
+<!-- ═══════════════════════════════════════════ -->
+<style>
+/* === variables === */
+.pf-section {
+  --pf-dark: #1a1a2e;
+  --pf-gray: #666;
+  --pf-light-gray: #999;
+  --pf-border: #e8e8e8;
+  --pf-bg: #fafbfc;
+  --pf-blue: #eff6ff;
+  --pf-blue-text: #1a3a5c;
+  --pf-green: #34c759;
+}
+
+/* === hero === */
+.pf-hero {
+  text-align: center;
+  padding: 3rem 1.5rem 2.5rem;
+}
+.pf-hero-icon {
+  font-size: 5rem;
+  line-height: 1;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 8px 24px rgba(0,0,0,0.12));
+}
+.pf-hero-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--heading-color, #1a1a2e);
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.5px;
+}
+.pf-hero-desc {
+  font-size: 1.05rem;
+  color: #666;
+  line-height: 1.7;
+  max-width: 460px;
+  margin: 0 auto;
+}
+.pf-badges {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+.pf-badges span {
+  display: inline-block;
+  padding: 0.25rem 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 999px;
+  background: rgba(52,199,89,0.08);
+  color: #2d9a46;
+  border: 1px solid rgba(52,199,89,0.2);
+}
+
+/* === CTA buttons === */
+.pf-hero-cta {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+.pf-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.7rem 1.6rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: transform 0.15s, box-shadow 0.15s;
+  white-space: nowrap;
+}
+.pf-btn:hover {
+  transform: translateY(-1px);
+}
+.pf-btn-dark {
+  background: #1a1a2e;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+.pf-btn-dark:hover {
+  box-shadow: 0 6px 22px rgba(0,0,0,0.22);
+  color: #fff;
+}
+.pf-btn-outline {
+  background: #fff;
+  color: #1a1a2e;
+  border: 1.5px solid #d8d8d8;
+}
+.pf-btn-outline:hover {
+  border-color: #aaa;
+  color: #1a1a2e;
+}
+
+/* === section shared === */
+.pf-section {
+  padding: 3.5rem 1.5rem;
+}
+.pf-bg-light {
+  background: #fafbfc;
+}
+.pf-section-title {
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--heading-color, #1a1a2e);
+  margin: 0 0 0.5rem;
+}
+.pf-section-hint {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #888;
+  margin: 0 0 2rem;
+}
+
+/* === screenshot carousel === */
+.pf-carousel {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 0.5rem 0 1rem;
+  margin: 0 -1.5rem;
+}
+.pf-carousel::-webkit-scrollbar { display: none; }
+.pf-carousel-track {
+  display: flex;
+  gap: 1rem;
+  padding: 0 calc(1.5rem + 2px);
+}
+.pf-phone-frame {
+  flex: 0 0 200px;
+  height: 380px;
+  border-radius: 24px;
+  border: 2px solid #e0e0e0;
+  background: #fff;
+  scroll-snap-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pf-placeholder {
+  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+  text-align: center;
+  font-size: 2rem;
+  color: #aaa;
+}
+.pf-placeholder small {
+  display: block;
+  font-size: 0.75rem;
+  color: #999;
+  margin-top: 0.25rem;
+}
+
+/* === video spot === */
+.pf-video-spot {
+  margin-top: 2rem;
+}
+.pf-video-placeholder {
+  max-width: 600px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.6);
+  gap: 0.5rem;
+}
+.pf-video-placeholder span {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.8);
+}
+.pf-video-placeholder small {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.4);
+}
+
+/* === feature cards === */
+.pf-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+@media (max-width: 640px) {
+  .pf-feature-grid { grid-template-columns: 1fr; }
+}
+.pf-feature-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.6rem;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.pf-feature-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.07);
+}
+.pf-feature-emoji {
+  font-size: 2.4rem;
+  margin-bottom: 0.75rem;
+  line-height: 1;
+}
+.pf-feature-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--heading-color, #1a1a2e);
+  margin: 0 0 0.4rem;
+}
+.pf-feature-card p {
+  font-size: 0.88rem;
+  color: #666;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* === chat / scenario === */
+.pf-chat-list {
+  max-width: 560px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.pf-chat-row {
+  display: flex;
+}
+.pf-chat-user {
+  background: #eff6ff;
+  color: #1a3a5c;
+  border-radius: 16px 16px 4px 16px;
+  padding: 0.7rem 1.1rem;
+  font-size: 0.93rem;
+  line-height: 1.55;
+  max-width: 78%;
+  align-self: flex-start;
+}
+.pf-chat-reply {
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+.pf-chat-emoji {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+.pf-chat-sys {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 16px 16px 16px 4px;
+  padding: 0.7rem 1.1rem;
+  font-size: 0.9rem;
+  color: #444;
+  line-height: 1.6;
+  max-width: 85%;
+}
+
+/* === comparison === */
+.pf-compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  max-width: 720px;
+  margin: 0 auto;
+}
+@media (max-width: 640px) {
+  .pf-compare-grid { grid-template-columns: 1fr; }
+}
+.pf-compare-item {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+.pf-compare-highlight {
+  background: #fafbfc;
+  border-color: #d8d8d8;
+}
+.pf-compare-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #999;
+  margin-bottom: 0.35rem;
+}
+.pf-compare-highlight .pf-compare-label {
+  color: #1a1a2e;
+}
+.pf-compare-item p {
+  font-size: 0.88rem;
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* === privacy === */
+.pf-privacy-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  max-width: 860px;
+  margin: 0 auto;
+}
+@media (max-width: 640px) {
+  .pf-privacy-grid { grid-template-columns: 1fr; }
+}
+.pf-privacy-card {
+  text-align: center;
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.6rem 1.25rem;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+}
+.pf-privacy-emoji {
+  font-size: 2.2rem;
+  margin-bottom: 0.6rem;
+}
+.pf-privacy-card h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--heading-color, #1a1a2e);
+  margin: 0 0 0.35rem;
+}
+.pf-privacy-card p {
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* === faq === */
+.pf-faq {
+  max-width: 680px;
+  margin: 0 auto;
+}
+.pf-faq-item {
+  border-bottom: 1px solid #e8e8e8;
+}
+.pf-faq-item summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.1rem 0;
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--heading-color, #1a1a2e);
+  cursor: pointer;
+  list-style: none;
+}
+.pf-faq-item summary::-webkit-details-marker { display: none; }
+.pf-faq-item summary::after {
+  content: '+';
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: #999;
+  transition: transform 0.2s;
+  flex-shrink: 0;
+  margin-left: 1rem;
+}
+.pf-faq-item[open] summary::after {
+  content: '−';
+  transform: rotate(0);
+}
+.pf-faq-item p {
+  padding: 0 0 1.1rem;
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.7;
+}
+
+/* === footer === */
+.pf-footer {
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  border-top: 1px solid #eee;
+  background: #fafbfc;
+}
+.pf-footer-brand {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin: 0 0 0.35rem;
+}
+.pf-footer-copy {
+  font-size: 0.8rem;
+  color: #999;
+  margin: 0 0 0.75rem;
+}
+.pf-footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  font-size: 0.82rem;
+}
+.pf-footer-links a {
+  color: #888;
+  text-decoration: none;
+}
+.pf-footer-links a:hover {
+  color: #333;
+}
+.pf-footer-links span {
+  color: #ccc;
+}
+</style>
