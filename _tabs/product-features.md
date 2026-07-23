@@ -76,22 +76,22 @@ redirect_from:
     <div class="pf-feature-card">
       <div class="pf-feature-emoji">🧭</div>
       <h3>八字命盘</h3>
-      <p>年月日时，四个坐标定位一个你。事业、财富、学业、情感——四张切片，看见你本来的样子。</p>
+      <p>你是一个什么样的人？输入出生时间，Ming 会从事业、财富、学业、情感四个方向给你一份详细分析。每个人的命盘都不一样，像指纹。</p>
     </div>
     <div class="pf-feature-card">
       <div class="pf-feature-emoji">🌤️</div>
       <h3>每日运势</h3>
-      <p>出门前，看一眼今天的节奏。吉凶、宜忌、最佳时辰——只属于你，不与别人雷同。</p>
+      <p>幸运正在路上偶，每个人都不一样，快去看看吧。</p>
     </div>
     <div class="pf-feature-card">
       <div class="pf-feature-emoji">🌙</div>
       <h3>梦境解析</h3>
-      <p>说一个梦。看它一字一句地回应，像深夜有人为你留了一盏灯。</p>
+      <p>昨晚做了什么梦？告诉 Ming，它会帮你讲清楚这个梦可能意味着什么。中英文都可以。</p>
     </div>
     <div class="pf-feature-card">
       <div class="pf-feature-emoji">📅</div>
       <h3>人生运程</h3>
-      <p>八十年，在一条线上展开。回头看转折，向前看节点——你的起伏节奏，一目了然。</p>
+      <p>这一辈子的运气，一条线看完。每 10 年一个阶段，告诉你现在走到哪了、什么时候往上走、什么时候该稳一点。</p>
     </div>
   </div>
 </section>
