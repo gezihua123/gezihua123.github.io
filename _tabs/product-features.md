@@ -20,7 +20,8 @@ redirect_from:
   <img class="pf-hero-icon" src="/assets/img/ming-icon.png" alt="Ming App Icon" />
   <h1 class="pf-hero-title">Ming</h1>
   <p class="pf-hero-slogan">See clearly with the heart.</p>
-  <p class="pf-hero-desc">输入出生时间，AI 在手机本地为你排盘解运。<br>1300 年皇家命理，翻译成诗意英文。</p>
+  <p class="pf-hero-quote">On ne voit bien qu'avec le cœur. L'essentiel est invisible pour les yeux.</p>
+  <p class="pf-hero-quote-attr">— Antoine de Saint-Exupéry, <em>Le Petit Prince</em></p>
   <div class="pf-badges">
     <span>✓ 端侧 AI</span>
     <span>✓ 无需注册</span>
@@ -35,7 +36,7 @@ redirect_from:
 <!-- 截图轮播 -->
 <!-- ═══════════════════════════════════════════ -->
 <section class="pf-section">
-  <h2 class="pf-section-title">一眼所见</h2>
+  <h2 class="pf-section-title">明心见性</h2>
   <p class="pf-section-hint">左右滑动查看</p>
   <div class="pf-carousel">
     <div class="pf-carousel-track">
@@ -75,22 +76,22 @@ redirect_from:
     <div class="pf-feature-card">
       <div class="pf-feature-emoji">🧭</div>
       <h3>八字命盘</h3>
-      <p>输入出生年月日时，生成完整命盘。四柱天干地支、十神人格原型、五行分布评分、本命卦。日主身强身弱判定，四维度 0-100 量化评估。</p>
+      <p>年月日时，四个坐标定位一个你。事业、财富、学业、情感——四张切片，看见你本来的样子。</p>
     </div>
     <div class="pf-feature-card">
       <div class="pf-feature-emoji">🌤️</div>
       <h3>每日运势</h3>
-      <p>你的八字 × 今日黄道神煞 × 建除十二星，三重计算得出专属宜忌。逐时吉凶地图覆盖子时到亥时。不是通用运势——同一天，不同八字看到的内容完全不同。</p>
+      <p>出门前，看一眼今天的节奏。吉凶、宜忌、最佳时辰——只属于你，不与别人雷同。</p>
     </div>
     <div class="pf-feature-card">
       <div class="pf-feature-emoji">🌙</div>
       <h3>梦境解析</h3>
-      <p>描述梦境，匹配《周公解梦》符号库，AI 逐字书写诗意解读。两步走：Phase 1 即时返回骨架，Phase 2 AI 流式润色。看着它一笔一划地写，像它正在思考。</p>
+      <p>说一个梦。看它一字一句地回应，像深夜有人为你留了一盏灯。</p>
     </div>
     <div class="pf-feature-card">
       <div class="pf-feature-emoji">📅</div>
       <h3>人生运程</h3>
-      <p>8 步大运 × 10 年 = 80 年时间线。往昔运程逐日柱年份扫描六冲⚡六合🤝伏吟🔄，编织个性化叙述。未来运程走标准排盘链。不是模板套的。</p>
+      <p>八十年，在一条线上展开。回头看转折，向前看节点——你的起伏节奏，一目了然。</p>
     </div>
   </div>
 </section>
@@ -149,7 +150,7 @@ redirect_from:
     </div>
     <div class="pf-compare-item">
       <div class="pf-compare-label">星座</div>
-      <p>告诉你"你是什么样的人"——<br>巴纳姆效应，12 句文案轮流套。</p>
+      <p>告诉你"你是什么样的人"——<br>生日月份决定性格，12 句文案轮流转。</p>
     </div>
     <div class="pf-compare-item pf-compare-highlight">
       <div class="pf-compare-label">Ming</div>
@@ -161,7 +162,7 @@ redirect_from:
     </div>
     <div class="pf-compare-item pf-compare-highlight">
       <div class="pf-compare-label">Ming</div>
-      <p>Qwen3-0.6B 跑在手机本地。<br>没账号，没服务器，你的出生日期不出手机。</p>
+      <p>AI 在你手机本地运行。<br>没账号，没服务器，你的出生日期不出手机。</p>
     </div>
   </div>
 </section>
@@ -171,17 +172,17 @@ redirect_from:
 <!-- ═══════════════════════════════════════════ -->
 <section class="pf-section">
   <h2 class="pf-section-title">隐私，不是功能，是默认</h2>
-  <p class="pf-section-hint">所有计算在端侧完成。AI 推理、八字排盘、十神推演——全部离线。</p>
+  <p class="pf-section-hint">所有功能在手机本地完成。八字排盘、AI 解读——全部离线。</p>
   <div class="pf-privacy-grid">
     <div class="pf-privacy-card">
       <div class="pf-privacy-emoji">🔐</div>
       <h4>无需注册</h4>
-      <p>没有账号系统。出生日期存在设备本地 MMKV。首次启动只有一件事：等你点同意隐私协议。</p>
+      <p>没有账号系统。你的出生日期只存在自己手机里。首次启动只有一件事：等你点同意隐私协议。</p>
     </div>
     <div class="pf-privacy-card">
       <div class="pf-privacy-emoji">📴</div>
       <h4>离线可用</h4>
-      <p>首次下载 AI 模型（约 456MB，断点续传）后，全部功能离线运行。prompt 不上传，数据不出设备。</p>
+      <p>首次下载 AI 模型（约 456MB）后，全部功能离线可用。你的任何信息都不会上传到网络。</p>
     </div>
     <div class="pf-privacy-card">
       <div class="pf-privacy-emoji">💳</div>
@@ -199,27 +200,27 @@ redirect_from:
   <div class="pf-faq">
     <details class="pf-faq-item">
       <summary>我的出生日期会被上传吗？</summary>
-      <p>不会。八字排盘、AI 推理全部在手机本地完成。Ming 没有服务器，没有账号系统。你的出生日期存在设备 MMKV 存储中，不联网。</p>
+      <p>不会。八字排盘、AI 解读全部在手机本地完成。Ming 没有服务器，没有账号系统。你的出生日期只存在自己的设备里，不联网。</p>
     </details>
     <details class="pf-faq-item">
       <summary>为什么不注册也能用？</summary>
-      <p>因为没有服务器需要验证你的身份。所有计算在端侧完成——农历转换、八字排盘、十神推演、AI 润色，全部离线。</p>
+      <p>因为没有服务器需要验证你的身份。所有功能在手机本地完成——农历转换、八字排盘、AI 解读，全部离线处理。</p>
     </details>
     <details class="pf-faq-item">
       <summary>八字结果准不准？</summary>
-      <p>命理规则对照《穷通宝典》《滴天髓》校准，农历数据覆盖 1900-2100 年（含闰月和节气精确日期），黄道神煞规则对照 6tail.cn 农历 API。算法透明，模型可追溯。这不是玄学随机生成——它是规则驱动的。</p>
+      <p>命理规则对照《穷通宝典》《滴天髓》校准，农历数据覆盖 1900-2100 年（含闰月和节气精确日期），黄道神煞规则对照权威农历 API 校验。不是玄学随机生成——它是规则驱动的。</p>
     </details>
     <details class="pf-faq-item">
       <summary>需要联网吗？</summary>
-      <p>首次下载 AI 模型时需要（约 456MB，支持 HuggingFace / HF Mirror / ModelScope 三源自动切换，含断点续传）。下载完成后，所有功能离线可用。</p>
+      <p>首次使用时需要下载 AI 模型（约 456MB）。下载过程中断网也没关系，下次打开会自动继续。下载完成后，所有功能离线可用。</p>
     </details>
     <details class="pf-faq-item">
       <summary>支持什么平台？</summary>
-      <p>Android 10+ 和 iOS 16+。Kotlin Multiplatform + Compose Multiplatform，双端共享同一套 Domain 引擎代码。</p>
+      <p>Android 10 及以上，iOS 16 及以上。双平台体验一致。</p>
     </details>
     <details class="pf-faq-item">
       <summary>AI 推理有多快？</summary>
-      <p>模型首次加载约 30-60 秒。推理本身对 0.6B 模型来说很快——日运润色 3-8 秒，梦境流式书写逐字输出，像人类打字的速度。</p>
+      <p>首次打开需要加载模型，约半分钟左右。之后每次使用很快——日运解读几秒即可完成，梦境解析逐字输出，像在你眼前书写。</p>
     </details>
   </div>
 </section>
@@ -228,7 +229,6 @@ redirect_from:
 <!-- Footer -->
 <!-- ═══════════════════════════════════════════ -->
 <footer class="pf-footer">
-  <p class="pf-footer-brand">Ming — Ancient wisdom meets your modern life.</p>
   <p class="pf-footer-copy">© Ming · 端侧 AI 命理 · 隐私优先</p>
   <div class="pf-footer-links">
     <a href="/ming/">Ming 总览</a>
@@ -274,8 +274,20 @@ redirect_from:
   font-size: 1.15rem;
   font-weight: 500;
   color: #888;
-  margin: 0 0 0.4rem;
+  margin: 0 0 0.75rem;
   font-style: italic;
+}
+.pf-hero-quote {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin: 0;
+  font-style: italic;
+  line-height: 1.5;
+}
+.pf-hero-quote-attr {
+  font-size: 0.78rem;
+  color: #bbb;
+  margin: 0.25rem 0 0;
 }
 .pf-hero-desc {
   font-size: 1.05rem;
