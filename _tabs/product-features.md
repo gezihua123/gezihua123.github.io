@@ -17,8 +17,9 @@ redirect_from:
 <!-- Hero -->
 <!-- ═══════════════════════════════════════════ -->
 <section class="pf-hero">
-  <div class="pf-hero-icon">☯️</div>
+  <img class="pf-hero-icon" src="/assets/img/ming-icon.png" alt="Ming App Icon" />
   <h1 class="pf-hero-title">Ming</h1>
+  <p class="pf-hero-slogan">See clearly with the heart.</p>
   <p class="pf-hero-desc">输入出生时间，AI 在手机本地为你排盘解运。<br>1300 年皇家命理，翻译成诗意英文。</p>
   <div class="pf-badges">
     <span>✓ 端侧 AI</span>
@@ -27,7 +28,6 @@ redirect_from:
   </div>
   <div class="pf-hero-cta">
     <a href="https://play.google.com/store/apps/details?id=com.photon.startup.app" class="pf-btn pf-btn-dark">Google Play 下载</a>
-    <a href="#" class="pf-btn pf-btn-outline">APK 下载</a>
   </div>
 </section>
 
@@ -257,10 +257,11 @@ redirect_from:
   padding: 3rem 1.5rem 2.5rem;
 }
 .pf-hero-icon {
-  font-size: 5rem;
-  line-height: 1;
-  margin-bottom: 1rem;
-  filter: drop-shadow(0 8px 24px rgba(0,0,0,0.12));
+  width: 96px;
+  height: 96px;
+  border-radius: 22px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  margin-bottom: 1.25rem;
 }
 .pf-hero-title {
   font-size: 2.5rem;
@@ -268,6 +269,13 @@ redirect_from:
   color: var(--heading-color, #1a1a2e);
   margin: 0 0 0.75rem;
   letter-spacing: -0.5px;
+}
+.pf-hero-slogan {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #888;
+  margin: 0 0 0.4rem;
+  font-style: italic;
 }
 .pf-hero-desc {
   font-size: 1.05rem;
