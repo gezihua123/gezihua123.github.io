@@ -36,7 +36,7 @@
     }
     </script>
 
-  {%- elsif page_url contains '/celestial-oracle/' -%}
+  {%- elsif page_url contains '/ming/' -%}
     {%- if page_url contains '-en' -%}
       {%- assign about_name = 'AI Fortune Telling' -%}
       {%- assign about_desc = 'On-device AI fortune telling, BaZi Chinese astrology' -%}
@@ -48,7 +48,7 @@
     {
       "@context": "https://schema.org",
       "@type": "TechArticle",
-      "headline": {{ page.title | default: 'Celestial Oracle' | jsonify }},
+      "headline": {{ page.title | default: 'Ming' | jsonify }},
       "description": {{ page.description | default: '端侧 AI 命理 App' | jsonify }},
       "proficiencyLevel": "Beginner",
       "about": {

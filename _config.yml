@@ -21,7 +21,7 @@ tagline: 把你的 Android 手机变成 AI Agent 的原生外设 # it will displ
 description: >- # used by seo meta and the atom feed
   phonefast — 把你的 Android 手机变成 AI Agent 的原生外设。10ms 级响应、原子级 observe、MCP 原生多模态、工业级自愈。
   Android 手机自动化工具，AI Agent 移动端验证首选方案，比 ADB shell 快 100 倍。
-  同时收录 Celestial Oracle — 端侧 AI 命理 App，八字排盘/每日运势/梦境解析/人生运程，隐私优先离线运行。
+  同时收录 Ming — 端侧 AI 命理 App，八字排盘/每日运势/梦境解析/人生运程，隐私优先离线运行。
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.

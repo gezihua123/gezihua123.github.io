@@ -22,15 +22,15 @@
   url: /archives/
   icon: fas fa-archive
 
-- title: Celestial Oracle
-  url: /celestial-oracle/
+- title: Ming
+  url: /ming/
   icon: fas fa-star
   children:
     - title: 产品功能
-      url: /celestial-oracle/product-features/
+      url: /ming/product-features/
       icon: fas fa-clipboard-list
     - title: 技术架构
-      url: /celestial-oracle/technical-architecture/
+      url: /ming/technical-architecture/
       icon: fas fa-sitemap
 
 - title: 关于
