@@ -81,7 +81,7 @@ redirect_from:
     <div class="pf-feature-card">
       <div class="pf-feature-emoji">🌤️</div>
       <h3>每日运势</h3>
-      <p>幸运正在路上偶，每个人都不一样，快去看看吧。</p>
+      <p>小幸运正在路上偶，每个人都不一样，快去看看吧。</p>
     </div>
     <div class="pf-feature-card">
       <div class="pf-feature-emoji">🌙</div>
