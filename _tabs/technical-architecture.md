@@ -22,50 +22,19 @@ redirect_from:
 
 ---
 
-## 一、系统全景
+## 一、系统全景 — App 运行时架构
 
-```mermaid
-graph TB
-    subgraph Agent["🤖 AI Agent 开发团队 · Claude Code 平台"]
-        direction TB
-        CO["[CO] 协调者<br/>任务分级 · 流程路由"]
-        PM["[PM] 产品经理<br/>需求 · UX · I18N"]
-        RD["[RD] 全栈工程师<br/>Domain→UI 实现"]
-        DD["[DD] 数据工程师<br/>命理模型 · 历法"]
-        CR["[CR] 规范守护者<br/>代码审查 · 合规"]
-        QA["[QA] 质量专家<br/>真机测试 · BUG"]
-        UI["[UI] 交互专家<br/>设计审核 · 方案"]
-        CO --> PM
-        CO --> RD
-        CO --> DD
-        PM --> UI
-        RD --> CR
-        DD --> CR
-        CR --> QA
-    end
+![App 运行时架构](/art.png)
 
-    subgraph App["📱 Ming App · 用户手机 Android 10+ / iOS 16+"]
-        direction TB
-        UI_Layer["Compose Multiplatform UI<br/>Home · Daily · Dream · Timeline"]
-        Domain["Shared Domain (KMP)<br/>FortuneEngine → 6 Internal Engines"]
-        Native["Android Native (JNI/C++)<br/>MNN · llama.cpp · OpenCL"]
-        Data["Data Layer<br/>SQLite · MMKV · JSON"]
-        UI_Layer --> Domain
-        Domain --> Native
-        Native --> Data
-    end
+| 层 | 技术栈 | 核心职责 |
+|---|-------|---------|
+| 🎨 **展示层** | Compose Multiplatform | 纯函数 UI，data class 注入，零 koinInject |
+| 📋 **用例层** | Kotlin UseCase | 编排 UI↔Domain↔AI，非流式先行 LLM 异步 |
+| 🧠 **领域层** | FortuneEngine (KMP) | 唯一 public API，6 引擎 internal，禁止直接调用 |
+| 🔮 **AI 层** | MNN + llama.cpp (JNI/C++) | 双引擎推理，3 源模型下载，4 级容错降级 |
+| 💾 **数据层** | SQLite + MMKV + JSON | JsonAssetLoader 统一入口，禁止 openAsset() |
 
-    Agent -.->|"代码产出"| App
-```
-
-Ming 有两个维度的 AI 系统：
-
-| 维度 | 系统 | 运行位置 |
-|------|------|---------|
-| **开发侧** | 7 角色 AI Agent 团队（CO/PM/RD/DD/CR/QA/UI） | Claude Code 平台 |
-| **产品侧** | 端侧 AI 推理引擎（MNN + llama.cpp） | 用户手机本地 |
-
-本文档全面覆盖两者。
+> Ming 的开发由 **7 角色 AI Agent 团队**（CO/PM/RD/DD/CR/QA/UI）在 Claude Code 平台上协作完成，详见[第一部分](#第一部分开发侧--ai-agent-多角色协作系统)。
 
 ---
 
